@@ -1,0 +1,26 @@
+{
+  "name": "invirtual-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:landing": "pnpm --filter ./apps/landing dev",
+    "dev:dashboard": "pnpm --filter ./apps/dashboard dev",
+    "dev:invitations": "pnpm --filter ./apps/invitations dev",
+
+    "build:landing": "pnpm --filter ./apps/landing build",
+    "build:dashboard": "pnpm --filter ./apps/dashboard build",
+    "build:invitations": "pnpm --filter ./apps/invitations build",
+    
+    "deploy:landing": "gh-pages -d apps/landing/.output/public"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.18.0+sha512.e804f889f1cecc40d572db084eec3e4881739f8dec69c0ff10d2d1beff9a4e309383ba27b5b750059d7f4c149535b6cd0d2cb1ed3aeb739239a4284a68f40cfa",
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}

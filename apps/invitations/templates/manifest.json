@@ -1,0 +1,12 @@
+[
+  {
+    "id": "boda-romantica",
+    "name": "Boda Romántica",
+    "thumbnail": "/templates/boda-romantica/preview.jpg"
+  },
+  {
+    "id": "infantil-cute",
+    "name": "Infantil Cute",
+    "thumbnail": "/templates/infantil-cute/preview.jpg"
+  }
+]

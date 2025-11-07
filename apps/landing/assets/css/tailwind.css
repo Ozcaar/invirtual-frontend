@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Gold accent */
+  --color-primary: oklch(0.75 0.15 85);
+  --color-primary-10: oklch(0.75 0.15 85 / 0.1);
+  --color-primary-20: oklch(0.75 0.15 85 / 0.2);
+  --color-primary-30: oklch(0.75 0.15 85 / 0.3);
+  --color-primary-40: oklch(0.75 0.15 85 / 0.4);
+  --color-primary-60: oklch(0.75 0.15 85 / 0.6);
+  --color-primary-80: oklch(0.75 0.15 85 / 0.8);
+  --color-primary-content: oklch(0.15 0 0);
+
+  /* Light pink */
+  --color-secondary: oklch(0.95 0.05 15);
+  --color-secondary-20: oklch(0.95 0.05 15 / 0.2);
+  --color-secondary-60: oklch(0.95 0.05 15 / 0.6);
+  --color-secondary-content: oklch(0.25 0 0);
+
+  /* Lavender accent */
+  --color-accent: oklch(0.88 0.08 290);
+  --color-accent-20: oklch(0.88 0.08 290 / 0.2);
+  --color-accent-60: oklch(0.88 0.08 290 / 0.6);
+  --color-accent-80: oklch(0.88 0.08 290 / 0.8);
+  --color-accent-content: oklch(0.25 0 0);
+
+  /* Light gray */
+  --color-neutral: oklch(0.93 0.02 280); 
+  --color-neutral-60: oklch(0.93 0.02 280 / 0.6); 
+  --color-neutral-content: oklch(0.25 0 0);
+
+  /* Muted */
+  --color-muted: oklch(0.97 0.01 280);
+  --color-muted-30: oklch(0.97 0.01 280 / 0.3);
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.25 0 0);
+  --card-background: #fcfcfc;
+
+  /* layout radius and sizes */
+  --radius-selector: 1rem;
+  --radius-field: 1rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 1;
+}
+
+/* ==== Gradients ==== */
+.bg-gradient-primary {
+  background-image: linear-gradient(to right, var(--color-primary), var(--color-primary-60));
+}
+
+.bg-gradient-secondary {
+  background-image: linear-gradient(to right, var(--color-secondary), var(--color-secondary-60));
+}
+
+.bg-gradient-accent {
+  background-image: linear-gradient(to right, var(--color-accent), var(--color-accent-60));
+}
+
+.bg-gradient-primary-to-accent {
+  background-image: linear-gradient(to right, var(--color-primary-80), var(--color-accent-80));
+}
+
+/* ✅ este es el que sustituye tu `bg-gradient-to-br from-secondary/20 via-background to-accent/20` */
+.bg-gradient-secondary-to-accent {
+  background-image: linear-gradient(to bottom right, var(--color-secondary-20), var(--background), var(--color-accent-20));
+}
+
+/* ==== Page / Layout transitions ==== */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.3s ease;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}
+
+.layout-enter-active,
+.layout-leave-active {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.layout-enter-from,
+.layout-leave-to {
+  opacity: 0;
+  transform: scale(0.98);
+}

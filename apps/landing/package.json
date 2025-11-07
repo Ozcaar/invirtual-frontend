@@ -1,0 +1,42 @@
+{
+  "name": "landing-app",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt dev --port 3000",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "clean": "rimraf .nuxt node_modules/.vite node_modules/.cache dist",
+    "reinstall": "pnpm run clean && pnpm install",
+    "prepare": "nuxt prepare",
+    "lint": "eslint . --ext .ts,.js,.vue --fix",
+    "typecheck": "tsc --noEmit",
+    "serve": "nuxt preview"
+  },
+  "dependencies": {
+    "@googlemaps/markerclusterer": "^2.6.2",
+    "@nuxt/content": "3.7.1",
+    "@nuxt/eslint": "1.9.0",
+    "@nuxt/icon": "2.0.0",
+    "@nuxt/image": "1.11.0",
+    "@nuxt/scripts": "0.12.1",
+    "@pinia/nuxt": "^0.11.2",
+    "@unhead/vue": "^2.0.17",
+    "better-sqlite3": "^12.4.1",
+    "eslint": "^9.37.0",
+    "nuxt": "^4.1.2",
+    "pinia": "^3.0.3",
+    "typescript": "^5.9.3",
+    "vue": "^3.5.22",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@nuxt/fonts": "0.11.4",
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "@types/node": "^24.8.1",
+    "autoprefixer": "^10.4.21",
+    "daisyui": "^5.3.7",
+    "pathe": "^2.0.3",
+    "vite-tsconfig-paths": "^5.1.4"
+  }
+}

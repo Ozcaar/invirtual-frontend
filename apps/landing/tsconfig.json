@@ -1,0 +1,34 @@
+{
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "types": [
+      "node"
+    ],
+    "noEmit": true,
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "strict": true,
+    "target": "esnext",
+    "allowJs": true,
+    "baseUrl": "app/",
+    "paths": {
+      "~/*": [
+        "./*"
+      ],
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
+  // "include": [
+  //   ".nuxt",
+  //   "nuxt.config.ts",
+  //   "app",
+  //   "components",
+  //   "layouts",
+  //   "pages",
+  //   "plugins",
+  //   "composables",
+  //   "types"
+  // ]
+}
