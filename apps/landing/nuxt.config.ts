@@ -3,7 +3,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineNuxtConfig({
   app: {
-    baseURL: '/invirtual-frontend/',
+    baseURL: '/',
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' }
   },
@@ -56,8 +56,11 @@ export default defineNuxtConfig({
       autoprefixer: {}
     }
   },
-  
+
   nitro: {
     preset: 'cloudflare-pages'
+  },
+  content: {
+    driver: 'fs' // Force SQLite less mode (@nuxt/content)
   }
 })
