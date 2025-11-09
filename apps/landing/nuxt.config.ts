@@ -33,7 +33,7 @@ export default defineNuxtConfig({
   css: [resolve(__dirname, 'assets/css/tailwind.css')],
 
   vite: {
-    plugins: [tsconfigPaths()]
+    // plugins: [tsconfigPaths()]
   },
 
   compatibilityDate: '2025-07-15',
@@ -58,8 +58,5 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'cloudflare-pages'
-  },
-  content: {
-    driver: 'fs' // Force SQLite less mode (@nuxt/content) 
   }
 })
