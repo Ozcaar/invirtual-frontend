@@ -61,6 +61,6 @@ export default defineNuxtConfig({
     preset: 'cloudflare-pages'
   },
   content: {
-    driver: 'fs' // Force SQLite less mode (@nuxt/content)
+    driver: 'fs' // Force SQLite less mode (@nuxt/content) 
   }
 })
