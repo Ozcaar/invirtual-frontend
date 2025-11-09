@@ -31,7 +31,8 @@ export interface InvitationData {
   rsvp: boolean
 
   // Step 4: Publishing
-  customUrl: string
+  rawSlug: string
+  slug: string
   isDraft: boolean
 }
 
@@ -72,7 +73,8 @@ export const useInvitationBuilderStore = defineStore('invitationBuilder', {
       rsvp: true,
 
       // Step 4: Publishing
-      customUrl: '',
+      rawSlug: '',
+      slug: '',
       isDraft: false,
     }
   }),

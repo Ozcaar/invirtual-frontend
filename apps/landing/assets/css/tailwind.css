@@ -33,6 +33,7 @@
 
   /* Muted */
   --color-muted: oklch(0.97 0.01 280);
+  --color-muted-50: oklch(0.97 0.01 280 / 0.5);
   --color-muted-30: oklch(0.97 0.01 280 / 0.3);
 
   --background: oklch(1 0 0);

@@ -128,9 +128,9 @@
       <!-- Card content -->
       <div class="space-y-4">
         <div class="space-y-2">
-          <div v-for="font in FONTS_BUILDER" :key="font.value" class="flex items-center space-x-2">
+          <div v-for="(font, index) in FONTS_BUILDER" :key="font.name" class="flex items-center space-x-2">
             <label class="flex-1 cursor-pointer" :style="{ fontFamily: font.value }">
-              <FormsBaseRadio :id="font.value" type="radio" name="font" :value="font.value" />
+              <FormsBaseRadio :id="font.value" type="radio" name="font" :value="font.value" :checked="index === 0" />
               {{ font.name }}
             </label>
           </div>

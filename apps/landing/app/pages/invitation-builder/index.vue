@@ -47,7 +47,7 @@
                         <button v-if="invitationBuilderStore.currentStep < invitationBuilderStore.totalSteps"
                             class="flex-1 btn bg-primary border font-medium"
                             @click="invitationBuilderStore.nextStep">Siguiente</button>
-                        <button v-if="invitationBuilderStore.currentStep === invitationBuilderStore.totalSteps"
+                        <button v-if="invitationBuilderStore.currentStep === invitationBuilderStore.totalSteps" @click="saveAndPublish()"
                             class="flex-1 btn bg-primary border font-medium">Guardar y Publicar</button>
                     </div>
                 </div>
@@ -71,6 +71,10 @@ import StepThree from './components/StepThree.vue';
 import StepFour from './components/StepFour.vue';
 
 const invitationBuilderStore = useInvitationBuilderStore()
+
+async function saveAndPublish() {
+  await navigateTo('/confirmation');
+}
 
 </script>
 

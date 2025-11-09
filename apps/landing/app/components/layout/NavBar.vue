@@ -1,8 +1,10 @@
 <template>
     <div class="relative">
-        <div class="fixed navbar bg-base-100 shadow-sm h-20 z-50">
+        <div class="fixed navbar bg-base-100 shadow-sm h-10 z-50">
             <div class="flex-1">
-                <a class="btn btn-ghost text-xl">InviRtual</a>
+                <NuxtLink to="/" class="btn btn-ghost text-xl">
+                    InviRtual
+                </NuxtLink>
             </div>
             <div class="flex-none">
                 <ul class="menu menu-horizontal px-1">
