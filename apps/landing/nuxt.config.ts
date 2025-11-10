@@ -27,9 +27,9 @@ export default defineNuxtConfig({
       weights: [100, 200, 300, 400, 500, 600, 700],
       styles: ['normal', 'italic'],
       subsets: ['latin'],
-      // display: 'swap'
     }
   },
+
   css: [resolve(__dirname, 'assets/css/tailwind.css')],
 
   vite: {

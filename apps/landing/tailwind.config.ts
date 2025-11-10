@@ -1,6 +1,7 @@
 // @ts-ignore
 import daisyui from "daisyui"
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss"
+
 export default {
   content: [
     "./app/**/*.{vue,js,ts}",
@@ -13,16 +14,15 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Poppins', 'ui-sans-serif', 'system-ui'],
+        sans: ["Poppins", "ui-sans-serif", "system-ui"],
       },
       colors: {
         brand: {
-          500: '#222222',
-        }
-      }
+          500: "#222222",
+        },
+      },
     },
   },
-  daisyui: {
-  },
-  plugins: [daisyui]
-}satisfies Config
+  daisyui: {},
+  plugins: [daisyui],
+} satisfies Config
