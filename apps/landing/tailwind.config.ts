@@ -1,6 +1,6 @@
 // @ts-ignore
 import daisyui from "daisyui"
-
+import type { Config } from 'tailwindcss'
 export default {
   content: [
     "./app/**/*.{vue,js,ts}",
@@ -25,4 +25,4 @@ export default {
   daisyui: {
   },
   plugins: [daisyui]
-}
+}satisfies Config
