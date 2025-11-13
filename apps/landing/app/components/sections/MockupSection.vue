@@ -44,7 +44,7 @@
     <!-- Mockup -->
     <div class="mockup-browser border border-base-300 w-full max-w-5xl bg-gray-100 drop-shadow-xl">
       <div class="mockup-browser-toolbar">
-        <div class="input bg-white">https://invirtual.com/xv-ana</div>
+        <div class="input bg-white">https://invirtualmx.com/xv-ana</div>
       </div>
       <div class="grid place-content-center border-t border-base-300 min-h-[70vh] lg:min-h-[60vh] bg-white">Hello!</div>
     </div>

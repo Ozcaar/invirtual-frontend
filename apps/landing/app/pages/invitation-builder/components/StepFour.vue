@@ -24,8 +24,8 @@
       <div class="space-y-4">
         <label for="customUrl"><strong>URL personalizada</strong></label>
         <div class="flex gap-2">
-          <div class="input input-primary flex-1 flex items-center gap-0 border bg-muted px-4 py-2">
-            <span class="text-sm text-muted-foreground select-none">{{ `invirtual.com/user-uuid/` }}</span>
+          <div class="input input-primary flex-1 flex items-center gap-0 border border-neutral bg-muted px-4 py-2">
+            <span class="text-sm text-muted-foreground select-none">{{ `invirtualmx.com/id-usuario/` }}</span>
             <UiInput id="customUrl" type="text" placeholder="tu-evento"
               v-model="invitationBuilderStore.invitationData.rawSlug" class="url-input" />
             <!-- 
@@ -39,10 +39,10 @@
           </Button> -->
         </div>
 
-        <div class="rounded-lg bg-[var(--color-muted)] p-4 space-y-2">
+        <div class="rounded-lg bg-(--color-muted) p-4 space-y-2">
           <p class="text-sm font-medium">Vista previa del enlace:</p>
           <code
-            class="text-sm text-primary">{{ `https://invirtual.com/user-uuid/${invitationBuilderStore.invitationData.slug || "tu-evento"}` }}</code>
+            class="text-sm text-primary">{{ `https://invirtualmx.com/id-usuario/${invitationBuilderStore.invitationData.slug || "tu-evento"}` }}</code>
         </div>
       </div>
     </div>
@@ -59,9 +59,6 @@
         <div class="card-title">
 
           <!-- Link icon -->
-          <!-- <div class="flex justify-center">
-            <Icon name="lucide:link-2" size="20" style="color: var(--color-primary);" />
-          </div> -->
           <div class="text-base w-full">Resumen de tu Invitación</div>
         </div>
 
@@ -72,19 +69,19 @@
       <!-- Card content -->
       <div class="space-y-4">
         <div class="grid gap-3">
-          <div class="flex justify-between py-2 border-b">
+          <div class="flex justify-between py-2 border-b border-neutral">
             <span class="text-sm text-muted-foreground">Evento:</span>
             <span class="text-sm font-medium">{{ invitationBuilderStore.invitationData.eventName || "Sin nombre" }}</span>
           </div>
-          <div class="flex justify-between py-2 border-b">
+          <div class="flex justify-between py-2 border-b border-neutral">
             <span class="text-sm text-muted-foreground">Fecha:</span>
             <span class="text-sm font-medium">{{ invitationBuilderStore.invitationData.eventDate || "Sin fecha" }}</span>
           </div>
-          <div class="flex justify-between py-2 border-b">
+          <div class="flex justify-between py-2 border-b border-neutral">
             <span class="text-sm text-muted-foreground">Plantilla:</span>
             <span class="text-sm font-medium capitalize">{{ invitationBuilderStore.invitationData.template }}</span>
           </div>
-          <div class="flex justify-between py-2 border-b">
+          <div class="flex justify-between py-2 border-b border-neutral">
             <span class="text-sm text-muted-foreground">Secciones activas:</span>
             <span class="text-sm font-medium">
               {{ [

@@ -54,18 +54,18 @@
             <!-- Default color palette -->
             <button v-for="color in COLORS_BUILDER" :key="color.value" :style="{ backgroundColor: color.value }"
               :title="color.name" @click="setPrimaryColor(color.value)" :class="[
-                'h-10 w-10 rounded-full border-2 transition-all hover:scale-110',
+                'h-10 w-10 rounded-full border-2 border-neutral transition-all hover:scale-110',
                 invitationBuilderStore.invitationData.primaryColor === color.value
-                  ? 'border-white ring-4 ring-[var(--color-primary-60)]'
+                  ? 'border-white ring-4 ring-(--color-primary-60)'
                   : 'border-muted'
               ]"></button>
 
             <!-- Custom selector -->
             <button @click="triggerPrimaryPicker" :style="customPrimaryStyle" :class="[
-              'h-10 w-10 rounded-full border-2 transition-all hover:scale-110 flex items-center justify-center',
+              'h-10 w-10 rounded-full border-2 border-neutral transition-all hover:scale-110 flex items-center justify-center',
               isPrimaryCustomSelected
-                ? 'border-white ring-4 ring-[var(--color-primary-60)]'
-                : 'border-dashed border-muted text-muted'
+                ? 'border-white ring-4 ring-(--color-primary-60)'
+                : 'border-dashed'
             ]" title="Elegir color personalizado">
               <Icon v-if="!isPrimaryCustomSelected" name="mdi:palette-outline" size="20" />
             </button>
@@ -81,18 +81,18 @@
             <!-- Default color palette -->
             <button v-for="color in COLORS_BUILDER" :key="color.value" :style="{ backgroundColor: color.value }"
               :title="color.name" @click="setSecondaryColor(color.value)" :class="[
-                'h-10 w-10 rounded-full border-2 transition-all hover:scale-110',
+                'h-10 w-10 rounded-full border-2 border-neutral transition-all hover:scale-110',
                 invitationBuilderStore.invitationData.secondaryColor === color.value
-                  ? 'border-white ring-4 ring-[var(--color-primary-60)]'
+                  ? 'border-white ring-4 ring-(--color-primary-60)'
                   : 'border-muted'
               ]"></button>
 
             <!-- Custom selector -->
             <button @click="triggerSecondaryPicker" :style="customSecondaryStyle" :class="[
-              'h-10 w-10 rounded-full border-2 transition-all hover:scale-110 flex items-center justify-center',
+              'h-10 w-10 rounded-full border-2 border-neutral transition-all hover:scale-110 flex items-center justify-center',
               isSecondaryCustomSelected
-                ? 'border-white ring-4 ring-[var(--color-primary-60)]'
-                : 'border-dashed border-muted text-muted'
+                ? 'border-white ring-4 ring-(--color-primary-60)'
+                : 'border-dashed'
             ]" title="Elegir color personalizado">
               <Icon v-if="!isSecondaryCustomSelected" name="mdi:palette-outline" size="20" />
             </button>

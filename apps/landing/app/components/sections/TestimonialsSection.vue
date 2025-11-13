@@ -6,7 +6,7 @@ import TestimonialCard from '~/components/ui/TestimonialCard.vue';
 </script>
 
 <template>
-    <section class="py-24 px-4 bg-gradient-to-b relative overflow-hidden">
+    <section class="py-24 px-4 bg-linear-to-b relative overflow-hidden">
         <!-- Background -->
         <div class="absolute inset-0 opacity-30">
             <div class="absolute top-10 right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl" />

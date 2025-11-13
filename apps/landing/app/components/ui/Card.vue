@@ -18,7 +18,7 @@ defineProps({
     },
     bgColor: {
         type: String,
-        default: 'bg-[var(--color-muted-30)]',
+        default: 'bg-(--color-muted-30)',
     }
 });
 </script>

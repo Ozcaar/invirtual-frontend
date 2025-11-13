@@ -1,10 +1,10 @@
 <template>
-    <div :class="['card bg-[var(--color-muted-30)] border-2 border-neutral transition-all duration-300 ease-in-out cursor-pointer hover:drop-shadow-2xl shadow hover:-translate-y-2 group',
+    <div :class="['card bg-(--color-muted-30) border-2 border-neutral transition-all duration-300 ease-in-out cursor-pointer hover:drop-shadow-2xl shadow hover:-translate-y-2 group',
         popular ? 'border-primary shadow-xl scale-105' : ''
     ]">
         <!-- Popular label -->
         <div v-if="popular"
-            class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-primary to-accent text-white text-sm font-semibold shadow-lg">
+            class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-linear-to-r from-primary to-accent text-white text-sm font-semibold shadow-lg">
             Más popular
         </div>
 
@@ -39,7 +39,7 @@
 
             <div class="">
                 <button
-                    :class="['btn btn-md w-full group text-primary-content transition-colors duration-300 ease-in-out', popular ? 'btn-primary bg-primary hover:bg-[var(--color-primary-80)]' : 'btn-neutral bg-white border-neutral border-[1.5px] hover:bg-[var(--color-neutral-60)]']">
+                    :class="['btn btn-md w-full group text-primary-content font-normal transition-colors duration-300 ease-in-out', popular ? 'btn-primary bg-primary hover:bg-(--color-primary-80)' : 'btn-neutral bg-white border-neutral border-[1.5px] hover:bg-(--color-neutral-60)']">
                     {{ btnText }}
                 </button>
             </div>

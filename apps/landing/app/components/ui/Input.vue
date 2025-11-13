@@ -5,8 +5,8 @@
     :type="type === 'textarea' ? undefined : type"
     :value="modelValue"
     :class="[
-      'input input-primary px-4 border shadow-sm w-full',
-      type === 'textarea' ? 'py-4 min-h-[6rem] max-h-[10rem]' : ''
+      'input input-primary font-normal border-neutral px-4 border shadow-sm w-full',
+      type === 'textarea' ? 'py-4 min-h-24 max-h-40' : ''
     ]"
     @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
   />

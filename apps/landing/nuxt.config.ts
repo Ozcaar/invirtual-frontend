@@ -1,5 +1,4 @@
-import { resolve } from 'pathe'
-import tsconfigPaths from 'vite-tsconfig-paths'
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
   app: {
@@ -18,7 +17,6 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxt/scripts',
-    '@nuxtjs/tailwindcss',
   ],
 
   fonts: {
@@ -30,24 +28,25 @@ export default defineNuxtConfig({
     }
   },
 
-  css: [resolve(__dirname, 'assets/css/tailwind.css')],
-
-  vite: {
-    // plugins: [tsconfigPaths()]
-  },
 
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-
-  tailwindcss: {
-    cssPath: resolve(__dirname, 'assets/css/tailwind.css'),
-    configPath: resolve(__dirname, 'tailwind.config.ts'),
-    exposeConfig: false,
-    viewer: {
-      endpoint: '/_tailwind',
-      exportViewer: true
-    }
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
   },
+  css: ['./app/assets/css/tailwind.css'],
+
+  // tailwindcss: {
+  //   cssPath: './app/assets/css/main.css',
+  //   configPath: resolve(__dirname, 'tailwind.config.ts'),
+  //   exposeConfig: false,
+  //   viewer: {
+  //     endpoint: '/_tailwind',
+  //     exportViewer: true
+  //   }
+  // },
   nitro: {
     preset: 'cloudflare-pages'
   }

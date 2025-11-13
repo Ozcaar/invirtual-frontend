@@ -1,8 +1,35 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "daisyui";
+
+@layer base {
+  /* *, ::before, ::after {
+    border-color: #e5e7eb !important;
+    --tw-space-y-reverse: 1 !important;
+   }
+  
+  button, input, optgroup, select, textarea {
+      font-family: inherit;
+      font-feature-settings: inherit;
+      font-variation-settings: inherit;
+      font-size: 100%;
+      font-weight: inherit;
+      line-height: inherit;
+      letter-spacing: inherit;
+      color: inherit;
+      margin: 0;
+      padding: 0;
+      border-top-width: 0px;
+      border-right-width: 0px;
+      border-bottom-width: 0px;
+      border-left-width: 0px;
+  } */
+}
 
 :root {
+  --font-sans: Poppins, ui-sans-serif, system-ui;
+
+  --color-brand-500: #222222;
+
   /* Gold accent */
   --color-primary: oklch(0.75 0.15 85);
   --color-primary-10: oklch(0.75 0.15 85 / 0.1);
@@ -46,7 +73,7 @@
   --radius-box: 1rem;
   --size-selector: 0.25rem;
   --size-field: 0.25rem;
-  --border: 1px;
+  --border: 0px;
   --depth: 1;
   --noise: 1;
 }
@@ -68,7 +95,7 @@
   background-image: linear-gradient(to right, var(--color-primary-80), var(--color-accent-80));
 }
 
-/* ✅ este es el que sustituye tu `bg-gradient-to-br from-secondary/20 via-background to-accent/20` */
+/* ✅ este es el que sustituye tu `bg-linear-to-br from-secondary/20 via-background to-accent/20` */
 .bg-gradient-secondary-to-accent {
   background-image: linear-gradient(to bottom right, var(--color-secondary-20), var(--background), var(--color-accent-20));
 }
@@ -91,4 +118,18 @@
 .layout-leave-to {
   opacity: 0;
   transform: scale(0.98);
+}
+
+.input {
+  --input-color: var(--color-neutral);
+}
+
+.input-primary:is(:focus, :focus-within) {
+  --input-color: var(--color-primary);
+}
+.input-secondary:is(:focus, :focus-within) {
+  --input-color: var(--color-secondary);
+}
+.input-accent:is(:focus, :focus-within) {
+  --input-color: var(--color-accent);
 }

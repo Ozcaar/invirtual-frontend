@@ -6,7 +6,7 @@
     :value="modelValue"
     :class="[
       'input input-primary px-4 border shadow-sm w-full',
-      isTextarea && 'py-4 min-h-[6rem] max-h-[10rem]'
+      isTextarea && 'py-4 min-h-24 max-h-40'
     ]"
     @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
   />

@@ -1,5 +1,5 @@
 <template>
-    <div class="card bg-[var(--color-muted-30)] border-2 border-neutral shadow-sm 
+    <div class="card bg-(--color-muted-30) border-2 border-neutral shadow-sm 
            transition-all duration-300 ease-in-out hover:shadow-lg hover:border-primary group">
         <div class="card-body flex flex-col p-6 space-y-4 text-base">
             <!-- Rating -->
@@ -15,7 +15,7 @@
             <p class="text-zinc-500 leading-relaxed">"{{ text }}"</p>
 
             <!-- User info -->
-            <div class="flex items-center gap-3 pt-4 border-t">
+            <div class="flex items-center gap-3 pt-4 border-t border-neutral">
                 <div class="w-12 h-12 rounded-full overflow-hidden bg-graddient-to-br from-primary to-accent">
                     <img v-if="image.trim() !== ''" :src="image" :alt="name" class="w-full h-full object-cover" />
                     <div v-else class="skeleton w-12 h-12 shrink-0 rounded-full"></div>

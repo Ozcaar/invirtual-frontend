@@ -1,11 +1,11 @@
 <template>
-    <div class="hero bg-base-200 min-h-[100vh] lg:min-h-[90vh]">
+    <div class="hero bg-base-200 min-h-screen lg:min-h-[90vh]">
         <div class="hero-overlay bg-white"></div>
         <div class="hero-content text-neutral-content text-center">
             <div class="flex justify-center items-center flex-col max-w-4xl mx-auto space-y-8 animate-fade-in-up">
                 <!-- Badge -->
                 <div
-                    class="flex justify-center items-center px-4 max-w-xs py-3 mb-2 border-[var(--color-primary-30)] border rounded-full bg-[var(--color-primary-10)]">
+                    class="flex justify-center items-center px-4 max-w-xs py-3 mb-10 border-(--color-primary-30) border rounded-full bg-(--color-primary-10)">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
                         <g fill="none" stroke="#d9a514" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                             <path
@@ -19,7 +19,7 @@
                 <!-- Title -->
                 <h1 class="text-5xl md:text-7xl font-bold text-brand-500">
                     Celebra tus momentos con
-                    <span class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+                    <span class="bg-linear-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
                         invitaciones digitales
                     </span> inolvidables
                 </h1>
@@ -32,13 +32,13 @@
                 <!-- CTA Buttons -->
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
                     <NuxtLink to="/invitation-builder"
-                        class="btn btn-primary p-0 group font-medium text-primary-content text-base md:text-lg bg-primary btn-xl w-[250px] mx-4 transition-colors duration-300 ease-in-out hover:bg-[var(--color-primary-80)]">
+                        class="btn btn-primary p-0 group font-medium text-primary-content text-base md:text-lg bg-primary btn-xl w-[250px] mx-4 transition-colors duration-300 ease-in-out hover:bg-(--color-primary-80)">
                         Crear mi invitación
                         <Icon name="formkit:arrowright" size="15"
                             class="ml-2 transition-transform duration-300 ease-out group-hover:translate-x-1.5" />
                     </NuxtLink>
                     <NuxtLink to="/"
-                        class="btn btn-neutral p-0 font-medium bg-[var(--color-muted-30)] border-[2px] group text-base md:text-lg btn-xl w-[175px] mx-4 transition-colors duration-300 ease-in-out hover:bg-[var(--color-neutral-60)]">
+                        class="btn btn-neutral p-0 font-medium bg-(--color-muted-30) border-2 border-neutral group text-base md:text-lg btn-xl w-[175px] mx-4 transition-colors duration-300 ease-in-out hover:bg-(--color-neutral-60)">
                         Ver ejemplos
                     </NuxtLink>
                 </div>
@@ -47,7 +47,7 @@
                     <div class="flex items-center gap-2">
                         <div class="flex -space-x-2">
                             <div v-for="i in 4"
-                                class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-accent border-2 border-white">
+                                class="w-8 h-8 rounded-full bg-linear-to-br from-primary to-accent border-2 border-white">
                             </div>
                         </div>
                         <span>+100 eventos creados</span>

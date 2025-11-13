@@ -2,7 +2,7 @@
     <div class="min-h-screen bg-gradient-secondary-to-accent">
 
         <!-- Header -->
-        <header class="border-b bg-white backdrop-blur-lg sticky top-0 z-50">
+        <header class="border-b border-neutral bg-white backdrop-blur-lg sticky top-0 z-50">
 
             <!-- Header -->
             <div class="container mx-auto px-4 py-4">
@@ -11,12 +11,12 @@
 
                         <!-- Back to main -->
                         <NuxtLink to="/"
-                            class="btn btn-md btn-ghost p-0 font-medium group text-sm sm:text-base w-[170px] sm:w-[200px] mx-0 sm:mx-0 transition-colors duration-300 ease-in-out hover:bg-[var(--color-neutral-60)]">
+                            class="btn btn-md btn-ghost p-0 font-medium group text-sm sm:text-base w-[170px] sm:w-[200px] mx-0 sm:mx-0 transition-colors duration-300 ease-in-out hover:bg-(--color-neutral-60)">
                             <Icon name="formkit:arrowleft" size="15"
                                 class="ml-1 sm:ml-2 transition-transform duration-300 ease-out group-hover:-translate-x-1.5" />
                             Volver al inicio
                         </NuxtLink>
-                        <div class="h-6 w-px border"></div>
+                        <div class="h-6 w-px border border-neutral"></div>
                         <h1 class="text-base sm:text-xl font-semibold w-[50%] mx-2 sm:mx-4">Crear Invitación</h1>
                     </div>
                 </div>
@@ -42,13 +42,13 @@
                     <!-- Navigation buttons -->
                     <div class="flex gap-3 pt-4">
                         <button v-if="invitationBuilderStore.currentStep > 1"
-                            class="flex-1 btn bg-[var(--color-muted-30)] border font-medium"
+                            class="flex-1 btn bg-(--color-muted-30) border-2 border-neutral font-medium transition-colors duration-300 ease-in-out hover:bg-(--color-neutral-60)"
                             @click="invitationBuilderStore.prevStep">Atrás</button>
                         <button v-if="invitationBuilderStore.currentStep < invitationBuilderStore.totalSteps"
-                            class="flex-1 btn bg-primary border font-medium"
+                            class="flex-1 btn bg-primary font-medium transition-colors duration-300 ease-in-out hover:bg-(--color-primary-80)"
                             @click="invitationBuilderStore.nextStep">Siguiente</button>
                         <button v-if="invitationBuilderStore.currentStep === invitationBuilderStore.totalSteps" @click="saveAndPublish()"
-                            class="flex-1 btn bg-primary border font-medium">Guardar y Publicar</button>
+                            class="flex-1 btn bg-primary font-medium transition-colors duration-300 ease-in-out hover:bg-(--color-primary-80)">Guardar y Publicar</button>
                     </div>
                 </div>
 

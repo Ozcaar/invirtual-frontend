@@ -23,7 +23,7 @@
             <div class="flex items-center gap-3">
 
               <!-- Gift icon -->
-              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--color-primary-10)]">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-(--color-primary-10)">
                 <div>
                   <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
                     <g fill="none" stroke="#d9a514" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
@@ -58,7 +58,7 @@
             <div class="flex items-center gap-3">
 
               <!-- Calendar icon -->
-              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--color-primary-10)]">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-(--color-primary-10)">
                 <div>
                   <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
                     <g fill="none" stroke="#d9a514" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
@@ -89,7 +89,7 @@
             <div class="flex items-center gap-3">
 
               <!-- Image icon -->
-              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--color-primary-10)]">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-(--color-primary-10)">
                 <div>
                   <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
                     <g fill="none" stroke="#d9a514" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
@@ -120,7 +120,7 @@
             <div class="flex items-center gap-3">
 
               <!-- Music icon -->
-              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--color-primary-10)]">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-(--color-primary-10)">
                 <div>
                   <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
                     <g fill="none" stroke="#d9a514" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
@@ -144,7 +144,7 @@
             <FormsBaseCheckbox id="music" v-model="invitationBuilderStore.invitationData.music" />
           </div>
 
-          <UiInput v-if="invitationBuilderStore.invitationData.music" placeholder="URL de Spotify o YouTube"
+          <UiInput v-if="invitationBuilderStore.invitationData.music" placeholder="URL de Spotify o YouTube" name="music-url"
             v-model="invitationBuilderStore.invitationData.musicUrl"></UiInput>
         </div>
 
@@ -154,7 +154,7 @@
             <div class="flex items-center gap-3">
 
               <!-- Mail icon -->
-              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--color-primary-10)]">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-(--color-primary-10)">
                 <div>
                   <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
                     <g fill="none" stroke="#d9a514" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">

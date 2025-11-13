@@ -1,12 +1,12 @@
 <template>
-    <footer class="bg-[var(--color-muted-30)] border-t">
+    <footer class="bg-(--color-muted-30) border-t border-neutral">
         <div class="container mx-auto max-w-7xl px-4 py-12">
             <!-- Links -->
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <!-- Brand -->
                 <div class="space-y-4">
                     <h3
-                        class="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                        class="text-2xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
                         InviRtual
                     </h3>
                     <p class="text-sm text-zinc-500 leading-relaxed">
@@ -98,23 +98,23 @@
             </div>
 
             <!-- Bottom bar -->
-            <div class="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="pt-8 border-t border-neutral flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-sm text-zinc-500">© 2025 InviRtual. Todos los derechos reservados.</p>
 
                 <!-- Social links -->
                 <div class="flex gap-4">
                     <a href="#"
                         class="w-10 h-10 rounded-full bg-muted hover:bg-primary/20 flex items-center justify-center transition-colors group">
-                        <Icon name="lucide:instagram" class="w-5 h-5 text-zinc-500 mr-2" />
+                        <Icon name="lucide:instagram" size="20" class="text-zinc-500" />
                     </a>
                     <a href="#"
                         class="w-10 h-10 rounded-full bg-muted hover:bg-primary/20 flex items-center justify-center transition-colors group">
-                        <Icon name="lucide:youtube" class="w-5 h-5 text-zinc-500 mr-2" />
+                        <Icon name="lucide:youtube" size="20" class="text-zinc-500" />
                     </a>
 
                     <a href="#"
                         class="w-10 h-10 rounded-full bg-muted hover:bg-primary/20 flex items-center justify-center transition-colors group">
-                        <Icon name="lucide:facebook" class="w-5 h-5 text-zinc-500 mr-2" />
+                        <Icon name="lucide:facebook" size="20" class="text-zinc-500" />
                     </a>
                 </div>
             </div>
