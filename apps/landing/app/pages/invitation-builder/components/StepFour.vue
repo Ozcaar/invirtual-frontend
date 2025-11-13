@@ -27,7 +27,7 @@
           <div class="input input-primary flex-1 flex items-center gap-0 border border-neutral bg-muted px-4 py-2">
             <span class="text-sm text-muted-foreground select-none">{{ `invirtualmx.com/id-usuario/` }}</span>
             <UiInput id="customUrl" type="text" placeholder="tu-evento"
-              v-model="invitationBuilderStore.invitationData.rawSlug" class="url-input" />
+              v-model="invitationBuilderStore.invitationData.rawSlug" class="url-input text-sm" />
             <!-- 
             <Input id="customUrl" placeholder="tu-evento" value={data.customUrl} onChange={(e)=> updateData({ customUrl:
             e.target.value })}
