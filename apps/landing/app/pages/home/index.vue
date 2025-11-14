@@ -8,7 +8,7 @@ import TestimonialsSection from '~/components/sections/TestimonialsSection.vue'
 import MockupSection from '~/components/sections/MockupSection.vue'
 
 definePageMeta({
-  layout: 'landing'
+  layout: 'landing',
 })
 </script>
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { STEPS_LANDING } from '~/pages/landing/constants';
+import { STEPS_LANDING } from '~/pages/home/constants';
 import ImageLoader from '~/components/ui/ImageLoader.vue';
 
 </script>

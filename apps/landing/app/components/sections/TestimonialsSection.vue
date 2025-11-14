@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { TESTIMONIALS } from '~/pages/landing/constants';
+import { TESTIMONIALS } from '~/pages/home/constants';
 import TestimonialCard from '~/components/ui/TestimonialCard.vue';
 
 </script>

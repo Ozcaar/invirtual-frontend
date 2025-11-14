@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PRICING_PLANS } from '~/pages/landing/constants';
+import { PRICING_PLANS } from '~/pages/home/constants';
 import PricingCard from '~/components/ui/PricingCard.vue';
 </script>
 

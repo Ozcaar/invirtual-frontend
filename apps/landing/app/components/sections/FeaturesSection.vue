@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { FEATURES } from '~/pages/landing/constants';
+import { FEATURES } from '~/pages/home/constants';
 
 </script>
 

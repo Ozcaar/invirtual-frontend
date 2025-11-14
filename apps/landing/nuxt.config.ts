@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   },
   srcDir: 'app/',
   routeRules: {
-    '/': { redirect: '/landing' },
+    '/': { redirect: '/home' },
   },
   modules: [
     '@pinia/nuxt',
