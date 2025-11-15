@@ -6,3 +6,4 @@
 **/.DS_Store/
 **/.vscode/
 apps/*/.env*
+apps/shell
