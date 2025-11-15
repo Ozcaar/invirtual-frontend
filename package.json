@@ -6,13 +6,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+
+    "dev:all": "pnpm -w --parallel dev",
     "dev:landing": "pnpm --filter ./apps/landing dev",
     "dev:panel": "pnpm --filter ./apps/panel dev",
     "dev:invitations": "pnpm --filter ./apps/invitations dev",
+
     "build:landing": "pnpm --filter ./apps/landing build",
     "build:panel": "pnpm --filter ./apps/panel build",
-    "build:invitations": "pnpm --filter ./apps/invitations build",
-    "deploy:landing": "gh-pages -d apps/landing/.output/public"
+    "build:invitations": "pnpm --filter ./apps/invitations build"
   },
   "keywords": [],
   "author": "",
