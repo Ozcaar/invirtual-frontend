@@ -1,12 +1,10 @@
 <template>
   <div>
-    <TinyNavBar></TinyNavBar>
+    <LayoutTinyNavBar></LayoutTinyNavBar>
   </div>
 </template>
 
 <script lang="ts" setup>
-import TinyNavBar from './TinyNavBar.vue';
-
 
 </script>
 

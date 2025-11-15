@@ -4,6 +4,6 @@
 
 <template>
     <div>
-        <NavBar></NavBar>
+        <LayoutNavBar></LayoutNavBar>
     </div>
 </template>
