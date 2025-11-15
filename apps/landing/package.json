@@ -1,10 +1,10 @@
 {
-  "name": "landing-app",
+  "name": "@invirtual/landing",
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "nuxt dev --port 3000",
     "build": "nuxt build",
+    "dev": "nuxt dev --dotenv .env.development --port 4000",
     "generate": "nuxt generate",
     "clean": "rimraf .nuxt node_modules/.vite node_modules/.cache dist",
     "reinstall": "pnpm run clean && pnpm install",
@@ -15,26 +15,28 @@
   },
   "dependencies": {
     "@googlemaps/markerclusterer": "^2.6.2",
-    "@nuxt/eslint": "1.9.0",
+    "@invirtual/nuxt-ui": "workspace:*",
     "@nuxt/icon": "2.0.0",
     "@nuxt/image": "1.11.0",
     "@nuxt/scripts": "0.12.1",
     "@pinia/nuxt": "^0.11.2",
-    "@tailwindcss/vite": "^4.1.17",
     "@unhead/vue": "^2.0.17",
     "better-sqlite3": "^12.4.1",
-    "daisyui": "^5.4.7",
-    "eslint": "^9.37.0",
     "nuxt": "^4.1.2",
     "pinia": "^3.0.3",
-    "tailwindcss": "^4.1.17",
-    "typescript": "^5.9.3",
     "vue": "^3.5.22",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "@nuxt/eslint": "1.9.0",
     "@nuxt/fonts": "0.11.4",
+    "@tailwindcss/vite": "^4.1.17",
     "@types/node": "^24.8.1",
-    "autoprefixer": "^10.4.21"
+    "autoprefixer": "^10.4.21",
+    "daisyui": "^5.4.7",
+    "eslint": "^9.37.0",
+    "tailwindcss": "^4.1.17",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.2"
   }
 }

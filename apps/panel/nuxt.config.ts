@@ -1,24 +1,26 @@
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
-  app: {
-    baseURL: '/',
-    pageTransition: { name: 'page', mode: 'out-in' },
-    layoutTransition: { name: 'layout', mode: 'out-in' }
-  },
-  srcDir: 'app/',
-  routeRules: {
-    '/': { redirect: '/home' },
-  },
+  compatibilityDate: '2025-07-15',
+  devtools: { enabled: true },
   modules: [
     '@pinia/nuxt',
     '@nuxt/fonts',
     '@nuxt/eslint',
     '@nuxt/icon',
     '@nuxt/image',
-    '@nuxt/scripts',
     '@invirtual/nuxt-ui'
   ],
+
+  app: {
+    baseURL: '/',
+    pageTransition: { name: 'page', mode: 'out-in' },
+    layoutTransition: { name: 'layout', mode: 'out-in' }
+  },
+
+  routeRules: {
+    // '/': { redirect: '/panel' },
+  },
 
   fonts: {
     families: [{ name: 'Poppins', provider: 'google' }],
@@ -29,14 +31,12 @@ export default defineNuxtConfig({
     }
   },
 
-
-  compatibilityDate: '2025-07-15',
-  devtools: { enabled: true },
   vite: {
     plugins: [
       tailwindcss(),
     ],
   },
+
   css: ['./app/assets/styles/app.css'],
 
   runtimeConfig: {
@@ -48,7 +48,7 @@ export default defineNuxtConfig({
       builderUrl: '',
     }
   },
-  
+
   nitro: {
     preset: 'cloudflare-pages'
   }
