@@ -1,7 +1,6 @@
 <script setup lang="ts">
 
 import { STEPS_LANDING } from '~/pages/home/constants';
-import ImageLoader from '~/components/ui/ImageLoader.vue';
 
 </script>
 
@@ -27,7 +26,7 @@ import ImageLoader from '~/components/ui/ImageLoader.vue';
                     <div class="flex-1">
                         <Card class="overflow-hidden border-2 border-neutral shadow-xl">
                             <CardContent class="p-0 aspect-square">
-                                <ImageLoader :src="step.image || ''" :alt="step.title" aspect="square" />
+                                <UiImageLoader :src="step.image || ''" :alt="step.title" aspect="square" />
                             </CardContent>
                         </Card>
                     </div>

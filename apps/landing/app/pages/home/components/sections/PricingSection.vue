@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { PRICING_PLANS } from '~/pages/home/constants';
-import PricingCard from '~/components/ui/PricingCard.vue';
 </script>
 
 <template>
@@ -12,7 +11,7 @@ import PricingCard from '~/components/ui/PricingCard.vue';
 
             <!-- Cards -->
             <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto p-6 md:p-0">
-                <PricingCard v-for="feature in PRICING_PLANS" :name="feature.name" :price="feature.price"
+                <UiPricingCard v-for="feature in PRICING_PLANS" :name="feature.name" :price="feature.price"
                     :period="feature.period" :description="feature.description" :features="feature.features"
                     :cta="feature.cta" :popular="feature.popular" :btnText="feature.btnText" />
             </div>

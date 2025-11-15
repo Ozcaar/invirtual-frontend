@@ -1,7 +1,6 @@
 <script setup lang="ts">
 
 import { TESTIMONIALS } from '~/pages/home/constants';
-import TestimonialCard from '~/components/ui/TestimonialCard.vue';
 
 </script>
 
@@ -19,7 +18,7 @@ import TestimonialCard from '~/components/ui/TestimonialCard.vue';
                 subtitle="Miles de eventos exitosos creados con InviRtual"></UiSectionTitle>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <TestimonialCard v-for="testimonial in TESTIMONIALS" :name="testimonial.name" :event="testimonial.event"
+                <UiTestimonialCard v-for="testimonial in TESTIMONIALS" :name="testimonial.name" :event="testimonial.event"
                     :image="testimonial.image" :text="testimonial.text" :rating="testimonial.rating" />
             </div>
         </div>

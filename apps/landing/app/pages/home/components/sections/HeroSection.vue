@@ -31,13 +31,13 @@
 
                 <!-- CTA Buttons -->
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-                    <NuxtLink to="/invitation-builder"
+                    <NuxtLink :to="routes.panel.invitationBuilder"
                         class="btn btn-primary p-0 group font-medium text-primary-content text-base md:text-lg bg-primary btn-xl w-[250px] mx-4 transition-colors duration-300 ease-in-out hover:bg-(--color-primary-80)">
                         Crear mi invitación
                         <Icon name="formkit:arrowright" size="15"
                             class="ml-2 transition-transform duration-300 ease-out group-hover:translate-x-1.5" />
                     </NuxtLink>
-                    <NuxtLink to="/"
+                    <NuxtLink :to="routes.landing.examples"
                         class="btn btn-neutral p-0 font-medium bg-(--color-muted-30) border-2 border-neutral group text-base md:text-lg btn-xl w-[175px] mx-4 transition-colors duration-300 ease-in-out hover:bg-(--color-neutral-60)">
                         Ver ejemplos
                     </NuxtLink>
@@ -58,3 +58,10 @@
         </div>
     </div>
 </template>
+
+<script setup lang="ts">
+
+import { getRoutes } from '~/utils/routes'
+const routes = getRoutes()
+
+</script>

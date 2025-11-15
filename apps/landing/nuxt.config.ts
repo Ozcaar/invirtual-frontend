@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image',
     '@nuxt/scripts',
+    '@invirtual/nuxt-ui'
   ],
 
   fonts: {
@@ -36,17 +37,18 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
-  css: ['./app/assets/css/tailwind.css'],
+  css: ['./app/assets/styles/app.css'],
 
-  // tailwindcss: {
-  //   cssPath: './app/assets/css/main.css',
-  //   configPath: resolve(__dirname, 'tailwind.config.ts'),
-  //   exposeConfig: false,
-  //   viewer: {
-  //     endpoint: '/_tailwind',
-  //     exportViewer: true
-  //   }
-  // },
+  runtimeConfig: {
+    // apiSecret: '',
+
+    public: {
+      panelUrl: '',
+      landingUrl: '',
+      builderUrl: '',
+    }
+  },
+  
   nitro: {
     preset: 'cloudflare-pages'
   }
