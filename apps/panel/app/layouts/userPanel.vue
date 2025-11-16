@@ -39,7 +39,7 @@
       </nav>
       <!-- Page content -->
       <div class="p-4">
-        <slot></slot>
+        <slot class="shadow-sm"></slot>
       </div>
     </div>
 
