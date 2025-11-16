@@ -19,7 +19,7 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    // '/': { redirect: '/panel' },
+    '/': { redirect: '/panel' },
   },
 
   fonts: {
