@@ -3,7 +3,8 @@
     <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
     <div class="drawer-content">
       <!-- Navbar -->
-      <nav class="navbar w-full bg-base-300">
+      <!-- <nav class="navbar w-full bg-base-300"> -->
+      <nav class="navbar w-full bg-white shadow">
         <label for="my-drawer-4" aria-label="open sidebar" class="btn btn-square btn-ghost">
           <!-- Sidebar toggle icon -->
           <Icon name="lucide-menu" size="24"
@@ -50,21 +51,25 @@
       <div class="flex h-full flex-col items-start bg-base-200 is-drawer-close:w-auto is-drawer-open:w-64">
         <!-- Sidebar header -->
         <div class="w-full p-4 shadow-sm">
-          <div class="flex items-center gap-2 is-drawer-close:tooltip is-drawer-close:tooltip-right">
-            <div class="flex h-8 w-10 items-center justify-center">
-              <div class="flex h-8 w-8 items-center justify-center rounded-full bg-linear-to-br from-primary to-accent">
-                <span class="text-sm font-bold text-white">IR</span>
+          <NuxtLink :to="routes.landing.home" class="no-underline">
+            <div class="flex items-center gap-2 is-drawer-close:tooltip is-drawer-close:tooltip-right">
+              <div class="flex h-8 w-10 items-center justify-center">
+                <div
+                  class="flex h-8 w-8 items-center justify-center rounded-full bg-linear-to-br from-primary to-accent">
+                  <span class="text-sm font-bold text-white">IR</span>
+                </div>
               </div>
+              <span class="font-semibold text-foreground is-drawer-close:hidden">InviRtual</span>
             </div>
-            <span class="font-semibold text-foreground is-drawer-close:hidden">InviRtual</span>
-          </div>
+          </NuxtLink>
         </div>
 
         <div class="flex flex-1 flex-col w-full">
           <!-- Menu items -->
           <ul class="menu w-full">
             <li v-for="item in menuItems" :key="item.id" class="h-16">
-              <button class="is-drawer-close:tooltip is-drawer-close:tooltip-right" :data-tip="item.label">
+              <NuxtLink :to="item.slug" class="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                :data-tip="item.label">
                 <div class="h-10 w-8 flex items-center justify-center">
                   <Icon :name="item.icon" size="16"
                     class="text-(--foreground) transition-transform duration-300 ease-in-out" />
@@ -72,7 +77,7 @@
                 <span class="text-(--foreground) is-drawer-close:hidden">
                   {{ item.label }}
                 </span>
-              </button>
+              </NuxtLink>
             </li>
           </ul>
 
@@ -98,8 +103,11 @@
 
 <script lang="ts" setup>
 
-import { menuItems } from '~/pages/panel/constants'
+import { menuItems } from '~/pages/panel//constants/constants'
 import { useUserPanelStore } from '~/stores/userPanel';
+import { getRoutes } from '~/utils/routes';
+
 const panelStore = useUserPanelStore()
+const routes = getRoutes()
 
 </script>
