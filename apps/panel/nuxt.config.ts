@@ -1,6 +1,13 @@
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
+  ssr: false,
+  components: [
+    {
+      path: '~/components',
+      pathPrefix: false
+    }
+  ],
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   modules: [
@@ -9,7 +16,8 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/icon',
     '@nuxt/image',
-    '@invirtual/nuxt-ui'
+    '@invirtual/nuxt-ui',
+    'nuxt-charts',
   ],
 
   app: {
@@ -35,6 +43,30 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
+    resolve: {
+      alias: {
+        'to-px': 'to-px/browser.js',
+        'striptags': 'striptags/src/striptags.js'
+      }
+    },
+    optimizeDeps: {
+      include: [
+        'to-px',
+        'to-px/browser.js',
+        'striptags',
+        'striptags/src/striptags.js',
+        '@unovis/ts'
+      ]
+    },
+    ssr: {
+      noExternal: [
+        'to-px',
+        'striptags',
+        '@unovis',
+        '@unovis/ts',
+        'nuxt-charts'
+      ]
+    }
   },
 
   css: ['./app/assets/styles/app.css'],

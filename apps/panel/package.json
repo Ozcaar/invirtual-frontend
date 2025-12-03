@@ -7,17 +7,20 @@
     "dev": "nuxt dev --dotenv .env.development --port 3000",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "postinstall-postinstall": "patch-package"
   },
   "dependencies": {
+    "@invirtual/nuxt-ui": "workspace:*",
     "@nuxt/icon": "2.0.0",
     "@nuxt/ui": "4.0.1",
     "@pinia/nuxt": "^0.11.3",
+    "@unovis/ts": "^1.6.2",
     "nuxt": "^4.1.2",
+    "nuxt-charts": "^1.0.2",
     "pinia": "^3.0.4",
     "vue": "^3.5.22",
-    "vue-router": "^4.5.1",
-    "@invirtual/nuxt-ui": "workspace:*"
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@nuxt/eslint": "1.9.0",
