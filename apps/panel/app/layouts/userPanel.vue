@@ -67,7 +67,7 @@
         <div class="flex flex-1 flex-col w-full">
           <!-- Menu items -->
           <ul class="menu w-full">
-            <li v-for="item in menuItems" :key="item.id" class="h-16">
+            <li v-for="item in MENU_ITEMS" :key="item.id" class="h-16">
               <NuxtLink :to="item.slug" class="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                 :data-tip="item.label">
                 <div class="h-10 w-8 flex items-center justify-center">
@@ -103,7 +103,7 @@
 
 <script lang="ts" setup>
 
-import { menuItems } from '~/pages/panel//constants/constants'
+import { MENU_ITEMS } from '~/utils/constants/panel_constants'
 import { useUserPanelStore } from '~/stores/userPanel';
 import { getRoutes } from '~/utils/routes';
 

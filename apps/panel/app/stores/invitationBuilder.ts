@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { STEPS_BUILDER } from '~/pages/invitation-builder/constants'
+import { STEPS_BUILDER } from '~/utils/constants/builder_constants'
 
 const totalSteps = STEPS_BUILDER.length
 
