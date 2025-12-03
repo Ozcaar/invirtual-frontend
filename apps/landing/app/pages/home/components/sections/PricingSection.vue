@@ -16,8 +16,5 @@ import { PRICING_PLANS } from '~/pages/home/constants';
                     :cta="feature.cta" :popular="feature.popular" :btnText="feature.btnText" />
             </div>
         </div>
-
-
-
     </div>
 </template>
