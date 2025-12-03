@@ -143,7 +143,7 @@
 <script lang="ts" setup>
 
 import { useInvitationBuilderStore } from '~/stores/invitationBuilder';
-import { COLORS_BUILDER, FONTS_BUILDER } from '../constants';
+import { COLORS_BUILDER, FONTS_BUILDER } from '~/utils/constants/builder_constants';
 import { ref } from 'vue'
 
 const invitationBuilderStore = useInvitationBuilderStore()

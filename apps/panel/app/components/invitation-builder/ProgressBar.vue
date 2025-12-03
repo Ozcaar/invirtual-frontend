@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import { STEPS_BUILDER } from '~/pages/invitation-builder/constants'
+import { STEPS_BUILDER } from '~/utils/constants/builder_constants'
 import { useInvitationBuilderStore } from '~/stores/invitationBuilder';
 
 const invitationBuilderStore = useInvitationBuilderStore()
