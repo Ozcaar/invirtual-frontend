@@ -24,7 +24,7 @@
       <div class="space-y-4">
         <label for="customUrl"><strong>URL personalizada</strong></label>
         <div class="flex gap-2">
-          <div class="input input-primary flex-1 flex items-center gap-0 border border-neutral bg-muted px-4 py-2">
+          <label class="input input-primary flex-1 flex items-center gap-0 border border-neutral bg-muted px-4 py-2 shadow-sm">
             <span class="text-sm text-muted-foreground select-none">{{ `invirtualmx.com/id-usuario/` }}</span>
             <UiInput id="customUrl" type="text" placeholder="tu-evento"
               v-model="invitationBuilderStore.invitationData.rawSlug" class="url-input text-sm" />
@@ -33,7 +33,7 @@
             e.target.value })}
             class="border-0 bg-transparent p-0 h-auto focus-visible:ring-0"
             /> -->
-          </div>
+            </label>
           <!-- <Button variant="outline" @click="">
             Generar
           </Button> -->
