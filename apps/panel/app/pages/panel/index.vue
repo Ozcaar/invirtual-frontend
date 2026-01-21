@@ -1,5 +1,17 @@
 <template>
   <div class="space-y-6">
+    <!-- Select invitation -->
+    <div class="flex flex-col-reverse md:flex-row md:items-center justify-between">
+      <label
+        class="w-full input input-primary flex-1 flex items-center gap-0 border border-neutral bg-muted px-4 py-2 shadow-sm">
+        <Icon name="lucide:chevron-down" size="20" class="text-muted-foreground mr-4" />
+        <UiInput v-model="selectedInvitation" type="select" placeholder="Selecciona una invitación"
+          :options="MOCK_INVITATIONS" optionValueKey="id" optionLabelKey="name"
+          class="pl-10 guest-filter-input text-sm shadow-none">
+        </UiInput>
+      </label>
+    </div>
+
     <!-- Summary Cards -->
     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       <PanelCard v-for="(data, index) in INVITATIONS_DATA" :key="index">
@@ -72,7 +84,9 @@
 import { useUserPanelStore } from '~/stores/userPanel';
 import { INVITATIONS_ACTIVITY_DATA, INVITATIONS_DATA } from '../../utils/constants/panel_constants'
 import PanelCard from '../../components/panel/PanelCard.vue';
+import { MOCK_INVITATIONS } from '~/utils/constants/invitations_constants';
 
+const selectedInvitation = ref<number | null>(null)
 const panelStore = useUserPanelStore()
 const colorFor = (index: number) => {
   const colors = [
@@ -123,4 +137,18 @@ const categories: Record<string, BulletLegendItemInterface> =
 
 </script>
 
-<style></style>
+<style scoped>
+.guest-filter-input {
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  padding: 0;
+  height: auto;
+  box-shadow: none;
+}
+
+.guest-filter-input:focus {
+  box-shadow: none;
+  outline: none;
+}
+</style>

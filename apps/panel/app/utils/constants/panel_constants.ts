@@ -2,7 +2,7 @@ export const MENU_ITEMS = [
     { id: 'panel', label: 'Inicio', icon: 'lucide-house', slug: '/panel' },
     { id: 'invitations', label: 'Invitaciones', icon: 'lucide-mail', slug: '/panel/invitations' },
     { id: 'guests', label: 'Invitados', icon: 'lucide-users', slug: '/panel/guests' },
-    { id: 'statistics', label: 'Estadísticas', icon: 'lucide-bar-chart-2', slug: '/panel/statistics' },
+    // { id: 'statistics', label: 'Estadísticas', icon: 'lucide-bar-chart-2', slug: '/panel/statistics' },
     { id: 'account', label: 'Cuenta', icon: 'lucide-settings', slug: '/panel/account' },
 ]
 
