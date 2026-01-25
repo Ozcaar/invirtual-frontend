@@ -20,6 +20,11 @@ export const getRoutes = () => {
       invitationBuilder: panelUrl + '/invitation-builder',
       dashboard: panelUrl + '/dashboard',
       confirmation: panelUrl + '/confirmation',
+      login: panelUrl + '/login',
+      register: panelUrl + '/register',
+      recoverPassword: panelUrl + '/recover-password',
+      privacyPolicy: panelUrl + '/privacy-policy',
+      termsOfService: panelUrl + '/terms-of-service',
     },
     invitations: {
       viewer: (uuid: string, slug: string) => invitationsUrl + '/' + uuid + '/' + slug,
