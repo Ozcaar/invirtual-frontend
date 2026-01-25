@@ -7,7 +7,7 @@
         <Icon name="lucide:chevron-down" size="20" class="text-muted-foreground mr-4" />
         <UiInput v-model="selectedInvitation" type="select" placeholder="Selecciona una invitación"
           :options="MOCK_INVITATIONS" optionValueKey="id" optionLabelKey="name"
-          class="pl-10 guest-filter-input text-sm shadow-none">
+          class="pl-10 input-with-icon text-sm shadow-none">
         </UiInput>
       </label>
     </div>
@@ -136,19 +136,3 @@ const categories: Record<string, BulletLegendItemInterface> =
   )
 
 </script>
-
-<style scoped>
-.guest-filter-input {
-  border: none;
-  border-radius: 0;
-  background-color: transparent;
-  padding: 0;
-  height: auto;
-  box-shadow: none;
-}
-
-.guest-filter-input:focus {
-  box-shadow: none;
-  outline: none;
-}
-</style>

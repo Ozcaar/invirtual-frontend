@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-gradient-secondary-to-accent">
+    <div class="min-h-screen">
 
         <!-- Header -->
         <header class="border-b border-neutral bg-white backdrop-blur-lg sticky top-0 z-50">

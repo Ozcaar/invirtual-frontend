@@ -21,6 +21,7 @@
 
   /* Lavender accent */
   --color-accent: oklch(0.88 0.08 290);
+  /* --color-accent: #d6cfff; */
   --color-accent-20: oklch(0.88 0.08 290 / 0.2);
   --color-accent-60: oklch(0.88 0.08 290 / 0.6);
   --color-accent-80: oklch(0.88 0.08 290 / 0.8);
@@ -105,4 +106,18 @@
 }
 .input-accent:is(:focus, :focus-within) {
   --input-color: var(--color-accent);
+}
+
+.input-with-icon {
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  padding: 0;
+  height: auto;
+  box-shadow: none;
+}
+
+.input-with-icon:focus {
+  box-shadow: none;
+  outline: none;
 }

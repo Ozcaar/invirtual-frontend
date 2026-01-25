@@ -16,7 +16,7 @@
           <Icon name="lucide:chevron-down" size="20" class="text-muted-foreground mr-4" />
           <UiInput v-model="selectedInvitation" type="select" placeholder="Selecciona una invitación"
             :options="MOCK_INVITATIONS" optionValueKey="id" optionLabelKey="name"
-            class="pl-10 guest-filter-input text-sm shadow-none">
+            class="pl-10 input-with-icon text-sm shadow-none">
           </UiInput>
         </label>
       </div>
@@ -76,7 +76,7 @@
         <label
           class="w-full input input-primary flex-1 flex items-center gap-0 border border-neutral bg-muted px-4 py-2 shadow-sm">
           <Icon name="lucide:search" size="20" class="text-muted-foreground mr-4" />
-          <UiInput type="text" placeholder="Buscar invitados..." class="pl-10 guest-filter-input text-sm shadow-none"
+          <UiInput type="text" placeholder="Buscar invitados..." class="pl-10 input-with-icon text-sm shadow-none"
             v-model="searchTerm">
           </UiInput>
         </label>
@@ -253,19 +253,3 @@ definePageMeta({
   layout: 'user-panel'
 })
 </script>
-
-<style scoped>
-.guest-filter-input {
-  border: none;
-  border-radius: 0;
-  background-color: transparent;
-  padding: 0;
-  height: auto;
-  box-shadow: none;
-}
-
-.guest-filter-input:focus {
-  box-shadow: none;
-  outline: none;
-}
-</style>
