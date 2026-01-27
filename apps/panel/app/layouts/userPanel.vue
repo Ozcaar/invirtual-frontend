@@ -11,13 +11,13 @@
             class="text-(--foreground) transition-transform duration-300 ease-in-out" />
         </label>
         <div class="px-4 flex items-center justify-between w-full">
-          <span class="font-semibold text-xl">Hola, {{ panelStore.userName }} 👋</span>
+          <span class="font-semibold text-xl">Hola, {{ user.user_metadata?.name }} 👋</span>
 
-          <div class="dropdown dropdown-end">
+          <div v-if="user" class="dropdown dropdown-end">
             <div tabindex="0" class="btn btn-ghost btn-circle avatar">
               <div class="w-10 rounded-full">
-                <img alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                <img alt="User Avatar"
+                  :src="user.user_metadata?.avatar_url" />
               </div>
             </div>
             <ul tabindex="-1"
@@ -29,7 +29,7 @@
                 </a>
               </li>
               <li>
-                <a class="h-10 flex items-center text-error">
+                <a @click="logout" class="h-10 flex items-center text-error">
                   <Icon name="lucide-log-out" size="16" class="transition-transform duration-300 ease-in-out" />
                   Cerrar sesión
                 </a>
@@ -84,7 +84,7 @@
           <!-- Logout -->
           <ul class="menu w-full mt-auto mb-2">
             <li class="h-14">
-              <button class="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Cerrar sesión">
+              <button @click="logout" class="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Cerrar sesión">
                 <div class="h-10 w-8 flex items-center justify-center">
                   <Icon name="lucide-log-out" size="16"
                     class="text-error transition-transform duration-300 ease-in-out" />
@@ -109,5 +109,12 @@ import { getRoutes } from '~/utils/routes';
 
 const panelStore = useUserPanelStore()
 const routes = getRoutes()
+const supabase = useSupabaseClient()
+const user = await useSupabaseUser()
+
+async function logout() {
+  await supabase.auth.signOut()
+  navigateTo('/login')
+}
 
 </script>

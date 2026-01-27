@@ -78,21 +78,21 @@
         <!-- Sign up link -->
         <div class="mt-6 space-y-3">
           <div class="flex items-center gap-3 text-sm text-gray-600">
-            <div class="w-8 h-8 rounded-full bg-[#9B6FF3]/10 flex items-center justify-center flex-shrink-0">
+            <div class="w-8 h-8 rounded-full bg-[#9B6FF3]/10 flex items-center justify-center shrink-0">
               <Icon name="lucide:key" size="16" class="text-[#9B6FF3]" />
             </div>
             <span>Sin necesidad de recordar contrasenas</span>
           </div>
 
           <div class="flex items-center gap-3 text-sm text-gray-600">
-            <div class="w-8 h-8 rounded-full bg-[#9B6FF3]/10 flex items-center justify-center flex-shrink-0">
+            <div class="w-8 h-8 rounded-full bg-[#9B6FF3]/10 flex items-center justify-center shrink-0">
               <Icon name="lucide-shield-check" size="16" class="text-[#9B6FF3]" />
             </div>
             <span>Tus datos estan protegidos</span>
           </div>
 
           <div class="flex items-center gap-3 text-sm text-gray-600">
-            <div class="w-8 h-8 rounded-full bg-[#9B6FF3]/10 flex items-center justify-center flex-shrink-0">
+            <div class="w-8 h-8 rounded-full bg-[#9B6FF3]/10 flex items-center justify-center shrink-0">
               <Icon name="lucide:zap" size="16" class="text-[#9B6FF3]" />
             </div>
             <span>Acceso instantaneo a tu cuenta</span>
@@ -118,24 +118,21 @@
 <script lang="ts" setup>
 import MinimalNavBar from '../../../../modules/nuxt-invirtual-ui/components/layout/MinimalNavBar.vue'
 
-
 const isLoadingGoogle = ref(false)
 const isLoadingFacebook = ref(false)
-
-const email = ref("")
-const password = ref("")
-const showPassword = ref(false)
-const rememberMe = ref(false)
-const isLoading = ref(false)
-
 const routes = getRoutes()
-
+const supabase = useSupabaseClient()
 
 const handleGoogleLogin = async () => {
-  isLoadingGoogle.value = true
 
-  // Simulate OAuth login
-  await new Promise((resolve) => setTimeout(resolve, 1500))
+  isLoadingGoogle.value = true
+  
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: { redirectTo: `${window.location.origin}/auth/callback` }
+  })
+  if (error) alert(error.message)
+  
   isLoadingGoogle.value = false
 }
 

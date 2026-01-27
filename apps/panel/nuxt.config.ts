@@ -18,7 +18,14 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@invirtual/nuxt-ui',
     'nuxt-charts',
+    '@nuxtjs/supabase'
   ],
+
+  supabase: {
+    url: process.env.NUXT_PUBLIC_SUPABASE_URL,
+    key: process.env.NUXT_PUBLIC_SUPABASE_ANON_KEY,
+    redirect: false,
+  },
 
   app: {
     baseURL: '/',
@@ -46,7 +53,8 @@ export default defineNuxtConfig({
     resolve: {
       alias: {
         'to-px': 'to-px/browser.js',
-        'striptags': 'striptags/src/striptags.js'
+        'striptags': 'striptags/src/striptags.js',
+        cookie: 'cookie-es',
       }
     },
     optimizeDeps: {
@@ -72,12 +80,13 @@ export default defineNuxtConfig({
   css: ['./app/assets/styles/app.css'],
 
   runtimeConfig: {
-    // apiSecret: '',
-
     public: {
       panelUrl: '',
       landingUrl: '',
       builderUrl: '',
+
+      supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
+      supabaseKey: process.env.NUXT_PUBLIC_SUPABASE_ANON_KEY,
     }
   },
 
