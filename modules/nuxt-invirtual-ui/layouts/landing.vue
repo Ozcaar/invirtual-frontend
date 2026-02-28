@@ -4,7 +4,8 @@
 
 <template>
     <div>
-        <LayoutHeader></LayoutHeader>
+        <!-- <LayoutTinyHeader></LayoutTinyHeader> -->
+        <LayoutLandingHeader></LayoutLandingHeader>
         <main>
             <slot></slot>
         </main>
