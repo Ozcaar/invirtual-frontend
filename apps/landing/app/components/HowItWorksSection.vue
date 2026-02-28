@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { STEPS_LANDING } from '~/pages/home/constants';
+import { STEPS_LANDING } from '~/utils/constants';
 
 </script>
 
@@ -24,11 +24,11 @@ import { STEPS_LANDING } from '~/pages/home/constants';
                         <p class="text-lg text-muted-foreground leading-relaxed">{{ step.description }}</p>
                     </div>
                     <div class="flex-1">
-                        <Card class="overflow-hidden border-2 border-neutral shadow-xl">
-                            <CardContent class="p-0 aspect-square">
+                        <div class="overflow-hidden border-2 border-neutral shadow-xl card rounded-2xl">
+                            <div class="p-0 aspect-square">
                                 <UiImageLoader :src="step.image || ''" :alt="step.title" aspect="square" />
-                            </CardContent>
-                        </Card>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

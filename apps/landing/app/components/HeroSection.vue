@@ -31,7 +31,7 @@
 
                 <!-- CTA Buttons -->
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-                    <NuxtLink :to="routes.panel.invitationBuilder"
+                    <NuxtLink :to="routes.landing.pricing"
                         class="btn btn-primary p-0 group font-medium text-primary-content text-base md:text-lg bg-primary btn-xl w-[250px] mx-4 transition-colors duration-300 ease-in-out hover:bg-(--color-primary-80)">
                         Crear mi invitación
                         <Icon name="formkit:arrowright" size="15"

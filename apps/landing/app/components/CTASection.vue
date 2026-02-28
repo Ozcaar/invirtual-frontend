@@ -5,7 +5,8 @@
         <div class="absolute inset-0">
             <div class="absolute rounded-full blur-3xl animate-pulse"></div>
             <div
-                class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+                class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse delay-1000">
+            </div>
         </div>
 
         <div class="container mx-auto max-w-4xl relative z-10 text-center space-y-8">
@@ -38,12 +39,19 @@
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-                <button
+                <!-- <button
                     class="btn btn-primary group font-medium text-base text-primary-content md:text-lg bg-primary btn-xl w-[250px] mx-4 p-0 transition-colors duration-300 ease-in-out hover:bg-(--color-primary-80)">
                     Crear mi invitación
                     <Icon name="formkit:arrowright" size="15"
                         class="ml-2 transition-transform duration-300 ease-out group-hover:translate-x-1.5" />
-                </button>
+                </button> -->
+
+                <NuxtLink :to="routes.landing.pricing"
+                    class="btn btn-primary p-0 group font-medium text-primary-content text-base md:text-lg bg-primary btn-xl w-[250px] mx-4 transition-colors duration-300 ease-in-out hover:bg-(--color-primary-80)">
+                    Crear mi invitación
+                    <Icon name="formkit:arrowright" size="15"
+                        class="ml-2 transition-transform duration-300 ease-out group-hover:translate-x-1.5" />
+                </NuxtLink>
                 <button
                     class="btn btn-neutral font-medium bg-(--color-muted-30) border-2 border-neutral group md:text-lg btn-xl w-[225px] mx-4 p-0 text-base transition-colors duration-300 ease-in-out hover:bg-(--color-neutral-60)">
                     Hablar con alguien
@@ -56,3 +64,10 @@
         </div>
     </section>
 </template>
+
+<script setup lang="ts">
+
+import { getRoutes } from '~/utils/routes'
+const routes = getRoutes()
+
+</script>
