@@ -102,7 +102,7 @@
       <table class="table table-zebra">
         <!-- Head -->
         <thead class="bg-base-300/75">
-          <tr class="border-b border-border cursor-none">
+          <tr class="border-b border-border">
 
             <!-- Column 1 -->
             <th class="text-foreground">Nombre</th>

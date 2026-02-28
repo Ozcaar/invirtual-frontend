@@ -3,7 +3,7 @@ import { PRICING_PLANS } from '~/pages/home/constants';
 </script>
 
 <template>
-    <div class="w-full flex items-center justify-center text-center px-4">
+    <div id="pricing" class="w-full flex items-center justify-center text-center px-4">
         <div class="container mx-auto max-w-7xl mb-48">
             <!-- Section title -->
             <UiSectionTitle title="Planes para cada ocasión"

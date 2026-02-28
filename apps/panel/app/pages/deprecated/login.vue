@@ -71,7 +71,7 @@
             </NuxtLink>
           </div>
 
-          <button type="button" :disabled="isLoading"
+          <button :disabled="isLoading"
             class="w-full text-white btn border hover:scale-105 h-12 bg-[#a881f4] hover:bg-[#8b5cf6] rounded-3xl font-medium shadow-sm transition-all duration-200">
 
             <div v-if="isLoading" class="flex items-center gap-2 justify-center">
