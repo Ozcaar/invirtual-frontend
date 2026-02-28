@@ -12,7 +12,7 @@ export const getRoutes = () => {
   routesCache = {
     landing: {
       home: landingUrl + '/',
-      pricing: landingUrl + '/pricing',
+      pricing: landingUrl + '/#pricing',
       examples: landingUrl + '/examples',
     },
     panel: {
