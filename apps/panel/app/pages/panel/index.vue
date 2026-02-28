@@ -1,79 +1,105 @@
 <template>
   <div class="space-y-6">
-    <!-- Select invitation -->
-    <div class="flex flex-col-reverse md:flex-row md:items-center justify-between">
-      <label
-        class="w-full input input-primary flex-1 flex items-center gap-0 border border-neutral bg-muted px-4 py-2 shadow-sm">
-        <Icon name="lucide:chevron-down" size="20" class="text-muted-foreground mr-4" />
-        <UiInput v-model="selectedInvitation" type="select" placeholder="Selecciona una invitación"
-          :options="MOCK_INVITATIONS" optionValueKey="id" optionLabelKey="name"
-          class="pl-10 input-with-icon text-sm shadow-none">
-        </UiInput>
-      </label>
+    <div class="flex items-center justify-between">
+      <div>
+        <h2 class="text-3xl font-bold text-foreground">Mis Invitaciones</h2>
+        <p class="mt-1 text-muted-foreground">Gestiona y personaliza tus invitaciones digitales</p>
+      </div>
+      <!-- <Button class="gap-2 bg-gradient-to-white from-primary to-accent hover:opacity-90">
+        <Plus class="h-4 w-4" />
+        Crear Nueva
+      </Button> -->
     </div>
 
-    <!-- Summary Cards -->
-    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-      <PanelCard v-for="(data, index) in INVITATIONS_DATA" :key="index">
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 
-        <!-- Head -->
-        <div class="pb-12">
-          <p class="card-title text font-semibold text-neutral-500">
-            <Icon :name="data.icon" size="20" />
-            {{ data.name }}
-          </p>
+      <PanelCard v-for="invitation in MOCK_INVITATIONS" :key="invitation.id"
+        class="group border border-border bg-white transition-all duration-300 hover:shadow-lg">
+
+        <!-- Image -->
+        <div class="relative h-40 overflow-hidden rounded-2xl">
+          <img :src="invitation.preview || '/placeholder.svg'" :alt="invitation.name"
+            class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110" />
+          <div class="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/20" />
         </div>
 
-        <!-- Content -->
-        <div>
-          <!-- Body -->
-          <div :class="[
-            'text-3xl font-bold',
-            colorFor(index)
-          ]">
-            {{ data.value }}
-          </div>
-
-          <!-- Footer -->
-          <p class="text-sm text-neutral-500">{{ data.label }}</p>
-        </div>
-      </PanelCard>
-    </div>
-
-    <!-- Charts -->
-
-    <div class="grid gap-4 sm:grid-cols-1 lg:grid-cols-5">
-
-      <!-- Bar Chart -->
-      <PanelCard class="lg:col-span-3">
-        <div class="pb-12">
-          <p class="card-title text font-semibold text-(--foreground)">Actividad de Invitaciones</p>
-          <p>Invitaciones creadas y confirmadas por mes</p>
-        </div>
-        <div>
-          <BarChart :data="INVITATIONS_ACTIVITY_DATA" :height="300" :categories="invitationsActivityCategories"
-            :y-axis="['total', 'confirmed']" :group-padding="0" :bar-padding="0.2" :x-num-ticks="6" :radius="4"
-            :x-formatter="xFormatter" :y-formatter="yFormatter" :legend-position="LegendPosition.TopRight"
-            :hide-legend="false" :y-grid-line="true" />
-        </div>
-      </PanelCard>
-
-
-      <!-- Donut Chart -->
-      <PanelCard class="lg:col-span-2">
-        <div class="pb-12">
-          <p class="card-title text font-semibold text-(--foreground)">Asistencia</p>
-          <p>Total de respuestas</p>
-        </div>
-        <div>
-          <DonutChart :data="donutData" :height="260" :categories="categories" :radius="80" :pad-angle="0.1"
-            :arc-width="20">
-            <div class="text-center">
-              <div class="font-semibold">Label</div>
-              <div class="text-muted">2 seconds ago</div>
+        <!-- Header -->
+        <div class="pb-3">
+          <div class="space-y-2 mt-4">
+            <p class="line-clamp-2 text-xl text-(--color-brand-500) font-bold">{{ invitation.name }}</p>
+            <div class="flex items-center justify-between text-neutral-500">
+              <p class="text-sm">
+                {{ new Date(invitation.date).toLocaleDateString('es-ES') }}
+              </p>
+              <div v-html="getStatusBadge(invitation.status)"></div>
             </div>
-          </DonutChart>
+          </div>
         </div>
+
+        <!-- Guests count -->
+        <div class="mb-4 text-sm text-muted-foreground text-neutral-500">
+          <p>{{ invitation.guests }} invitados</p>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex gap-2">
+          <NuxtLink class="btn btn-ghost border border-neutral font-medium flex-1 gap-1 hover:bg-(--color-accent-80)">
+            <Icon name="lucide-eye" size="17" />
+            <span class="hidden sm:inline">Vista</span>
+          </NuxtLink>
+          <NuxtLink class="btn btn-ghost border border-neutral font-medium flex-1 gap-1 hover:bg-(--color-accent-80)">
+            <Icon name="lucide-edit-2" size="17" />
+            <span class="hidden sm:inline">Editar</span>
+          </NuxtLink>
+          <NuxtLink class="btn btn-ghost border border-neutral font-medium flex-1 gap-1 hover:bg-(--color-accent-80)">
+            <Icon name="lucide-bar-chart-3" size="17" />
+            <span class="hidden sm:inline">Stats</span>
+          </NuxtLink>
+
+          <!-- Dropdown button -->
+          <div class="dropdown dropdown-center">
+            <div tabindex="0" role="button"
+              class="btn btn-ghost border border-neutral font-medium flex-1 gap-1 hover:bg-(--color-accent-80)">
+              <Icon name="lucide-more-vertical" size="17" />
+            </div>
+            <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+              <li>
+                <a v-if="invitation.status === 'active'">
+                  <Icon name="lucide-lock" size="16" class="mr-2" />
+                  Desactivar
+                </a>
+                <a v-else>
+                  <Icon name="lucide-unlock" size="16" class="mr-2" />
+                  Activar
+                </a>
+              </li>
+              <li>
+                <a class="text-error">
+                  <Icon name="lucide-trash-2" size="16" class="mr-2" />
+                  Eliminar
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </PanelCard>
+
+      <!-- {/* Add New Card */} -->
+      <PanelCard
+        class="group border-2 border-dashed border-border bg-linear-to-br from-secondary/5 to-accent/5 transition-all duration-300 hover:border-primary hover:bg-linear-to-br hover:from-primary/5 hover:to-accent/5 cursor-pointer">
+        <NuxtLink :to="routes.panel.invitationBuilder">
+          <div class="flex h-full items-center justify-center p-6">
+            <div class="flex flex-col items-center gap-1 text-center transition-all">
+              <div
+                class="rounded-2xl bg-primary/10 p-3 transition-all duration-300 group-hover:bg-primary/20 flex items-center justify-center">
+                <Icon name="lucide-plus" size="24" class="text-primary" />
+              </div>
+              <span class="text-lg font-medium text-foreground mt-4">Crear nueva invitación</span>
+              <span class="text-base text-muted-foreground text-neutral-500">Comienza a diseñar</span>
+            </div>
+          </div>
+        </NuxtLink>
       </PanelCard>
     </div>
   </div>
@@ -81,58 +107,37 @@
 
 <script lang="ts" setup>
 
-import { useUserPanelStore } from '~/stores/userPanel';
-import { INVITATIONS_ACTIVITY_DATA, INVITATIONS_DATA } from '../../utils/constants/panel_constants'
-import PanelCard from '../../components/panel/PanelCard.vue';
 import { MOCK_INVITATIONS } from '~/utils/constants/invitations_constants';
+import { getRoutes } from '~/utils/routes';
 
-const selectedInvitation = ref<number | null>(null)
-const panelStore = useUserPanelStore()
-const colorFor = (index: number) => {
-  const colors = [
-    "text-(--foreground)",
-    "text-(--color-primary)",
-    "text-(--color-secondary)",
-    "text-(--color-accent)"
-  ]
+const routes = getRoutes();
+function getStatusBadge(status: string) {
+  let badgeClass = '';
+  let text = '';
 
-  return colors[index] || "text-(--foreground)"
+  switch (status) {
+    case 'active':
+      badgeClass = 'bg-green-100 text-green-800';
+      text = 'Activa';
+      break;
+    case 'inactive':
+      badgeClass = 'bg-yellow-100 text-yellow-800';
+      text = 'Inactiva';
+      break;
+    case 'archived':
+      badgeClass = 'bg-gray-100 text-gray-800';
+      text = 'Archivada';
+      break;
+    default:
+      badgeClass = 'bg-gray-100 text-gray-800';
+      text = 'Desconocido';
+  }
+  return `<span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ${badgeClass}">${text}</span>`;
 }
 
 definePageMeta({
   layout: 'user-panel'
 })
-
-// CHARTS
-
-// Bars
-
-const xFormatter = (i: number): string => `${INVITATIONS_ACTIVITY_DATA[i]?.month || ''}`
-const yFormatter = (tick: number) => tick.toString()
-const invitationsActivityCategories = {
-  total: { name: 'Total', color: '#222222' },
-  confirmed: { name: 'Confirmadas', color: '#555555' }
-  // total: { name: 'Total', color: 'var(--foreground)' },
-  // confirmed: { name: 'Confirmadas', color: 'var(--color-primary)' }
-}
-
-// Cake
-
-// const donutData = ref([35, 25, 20, 15, 5])
-const donutData = ref([35, 25, 20])
-const marketShareLabels = [
-  // { name: 'Confirmadas', color: 'var(--color-primary)' },
-  // { name: 'Rechazadas', color: 'var(--color-secondary)' },
-  // { name: 'Pendientes', color: 'var(--color-accent)' },
-  { name: 'Confirmadas', color: '#222222' },
-  { name: 'Rechazadas', color: '#555555' },
-  { name: 'Pendientes', color: '#999999' },
-  // { name: 'Product D', color: '#a855f7' },
-  // { name: 'Other', color: '#06b6d4' },
-]
-const categories: Record<string, BulletLegendItemInterface> =
-  Object.fromEntries(
-    marketShareLabels.map((i) => [i.name, { name: i.name, color: i.color }]),
-  )
-
 </script>
+
+<style></style>

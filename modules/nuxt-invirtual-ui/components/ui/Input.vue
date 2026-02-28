@@ -6,6 +6,7 @@
     :value="stringValue"
     :class="baseClass"
     @input="onInput"
+    :placeholder="placeholder || ''"
   />
 
   <!-- SELECT -->

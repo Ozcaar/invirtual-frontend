@@ -11,13 +11,12 @@
             class="text-(--foreground) transition-transform duration-300 ease-in-out" />
         </label>
         <div class="px-4 flex items-center justify-between w-full">
-          <span class="font-semibold text-xl">Hola, {{ user.user_metadata?.name }} 👋</span>
+          <span v-if="displayName" class="font-semibold text-xl">Hola, {{ displayName }} 👋</span>
 
           <div v-if="user" class="dropdown dropdown-end">
             <div tabindex="0" class="btn btn-ghost btn-circle avatar">
               <div class="w-10 rounded-full">
-                <img alt="User Avatar"
-                  :src="user.user_metadata?.avatar_url" />
+                <img alt="User Avatar" :src="avatarUrl" />
               </div>
             </div>
             <ul tabindex="-1"
@@ -84,7 +83,8 @@
           <!-- Logout -->
           <ul class="menu w-full mt-auto mb-2">
             <li class="h-14">
-              <button @click="logout" class="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Cerrar sesión">
+              <button @click="logout" class="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="Cerrar sesión">
                 <div class="h-10 w-8 flex items-center justify-center">
                   <Icon name="lucide-log-out" size="16"
                     class="text-error transition-transform duration-300 ease-in-out" />
@@ -102,19 +102,38 @@
 </template>
 
 <script lang="ts" setup>
-
 import { MENU_ITEMS } from '~/utils/constants/panel_constants'
-import { useUserPanelStore } from '~/stores/userPanel';
-import { getRoutes } from '~/utils/routes';
+import { useUserPanelStore } from '~/stores/userPanel'
+import { getRoutes } from '~/utils/routes'
+
+definePageMeta({ auth: true })
 
 const panelStore = useUserPanelStore()
 const routes = getRoutes()
+
 const supabase = useSupabaseClient()
-const user = await useSupabaseUser()
+const user = useSupabaseUser()
+const session = useSupabaseSession()
+
+const displayName = computed(() => {
+  const meta = user.value?.user_metadata || {}
+  return meta.name || meta.full_name || user.value?.email?.split('@')[0] || ''
+})
+
+const avatarUrl = computed(() => {
+  const meta = user.value?.user_metadata || {}
+  return meta.avatar_url || 'https://api.dicebear.com/7.x/initials/svg?seed=IR'
+})
+
+const accessToken = computed(() => session.value?.access_token ?? null)
+
+// Si de plano necesitas el token para tu backend, úsalo desde accessToken.value
+// console.log(accessToken.value)
+
+console.log(accessToken.value);
 
 async function logout() {
   await supabase.auth.signOut()
-  navigateTo('/login')
+  return navigateTo('/login')
 }
-
 </script>

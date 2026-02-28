@@ -1,12 +1,10 @@
-export default defineNuxtRouteMiddleware(async (to) => {
-    const publicPaths = ['/', '/login', '/auth/callback']
-    
-    if (publicPaths.includes(to.path)) return
+export default defineNuxtRouteMiddleware((to) => {
+    const publicPaths = new Set(['/', '/login', '/auth/callback'])
+    if (publicPaths.has(to.path)) return
 
-    const supabase = useSupabaseClient()
-    const { data } = await supabase.auth.getSession()
+    if (!to.meta.auth) return
 
-    if (!data.session) {
-        return navigateTo('/login')
-    }
+    const session = useSupabaseSession()
+    if (!session.value) return navigateTo('/login')
+
 })
