@@ -47,15 +47,14 @@
             </div>
 
             <!-- Plan Card -->
-            <!-- <Card class="border-2 border-primary/20 shadow-lg overflow-hidden">
-              {plan.popular && (
-              <div class="bg-linear-to-r from-primary to-accent px-4 py-2 text-center">
+            <UiCard class="border-2 border-primary/20 shadow-lg overflow-hidden">
+              <div v-if="plan.popular" class="bg-linear-to-r from-primary to-accent px-4 py-2 text-center">
                 <span class="text-white text-sm font-medium flex items-center justify-center gap-2">
                    <Icon name="lucide:sparkles" size="16" class="text-white" />
                   Plan más popular
                 </span>
               </div>
-              )}
+
               <CardContent class="p-6">
                 <div class="flex items-start justify-between mb-6">
                   <div>
@@ -80,7 +79,7 @@
                   </ul>
                 </div>
               </CardContent>
-            </Card> -->
+            </UiCard>
 
             <!-- Trust Badges -->
             <div class="grid grid-cols-3 gap-4">
@@ -197,25 +196,6 @@
 
 <script lang="ts" setup>
 
-const routes = getRoutes()
-import { ref } from 'vue';
-
-const setIsLoading = ref(false)
-const isLoading = ref(false)
-const openFaq = ref(-1)
-
-const STEPS = [
-  { number: 1, title: "Plan" },
-  { number: 2, title: "Pago" },
-  { number: 3, title: "Activación" }
-];
-
-const TRUST_BADGES = [
-  { icon: "shield", label: "Pago 100% seguro" },
-  { icon: "credit-card", label: "Múltiples métodos" },
-  { icon: "clock", label: "Activación inmediata" },
-];
-
 const PLANS = {
   basico: {
     name: "Básico",
@@ -230,6 +210,7 @@ const PLANS = {
       "Sin marca de agua",
       "Soporte por email",
     ],
+    popular: false,
   },
   premium: {
     name: "Premium",
@@ -264,6 +245,29 @@ const FAQS = [
     answer: "Tu plan se activa inmediatamente después de completar el pago. Podrás crear tu invitación al instante.",
   },
 ]
+
+const routes = getRoutes()
+import { ref } from 'vue';
+
+const setIsLoading = ref(false)
+const isLoading = ref(false)
+const openFaq = ref(-1)
+
+const paramas = ref(new URLSearchParams(document.location.search))
+const planId = ref(paramas.value.get("plan") || "basico")
+const plan = PLANS[planId.value as keyof typeof PLANS]
+
+const STEPS = [
+  { number: 1, title: "Plan" },
+  { number: 2, title: "Pago" },
+  { number: 3, title: "Activación" }
+];
+
+const TRUST_BADGES = [
+  { icon: "shield", label: "Pago 100% seguro" },
+  { icon: "credit-card", label: "Múltiples métodos" },
+  { icon: "clock", label: "Activación inmediata" },
+];
 
 function setOpenFaq(index: number) {
   openFaq.value = index == openFaq.value ? -1 : index;
