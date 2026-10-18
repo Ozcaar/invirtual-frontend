@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { STEPS_LANDING } from '~/utils/constants';
+import { STEPS_LANDING } from '~/components/home/constants';
 
 </script>
 

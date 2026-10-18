@@ -63,7 +63,12 @@
 
 <script lang="ts" setup>
 
+import ProgressBar from '~/components/invitation-builder/ProgressBar.vue';
+import StepOne from '~/components/invitation-builder/StepOne.vue';
 import { useInvitationBuilderStore } from '~/stores/invitationBuilder';
+import StepTwo from '~/components/invitation-builder/StepTwo.vue';
+import StepThree from '~/components/invitation-builder/StepThree.vue';
+import StepFour from '~/components/invitation-builder/StepFour.vue';
 import { getRoutes } from '~/utils/routes';
 
 const invitationBuilderStore = useInvitationBuilderStore()

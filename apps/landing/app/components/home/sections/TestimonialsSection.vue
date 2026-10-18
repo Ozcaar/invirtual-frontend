@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { TESTIMONIALS } from '~/utils/constants';
+import { TESTIMONIALS } from '~/components/home/constants';
 
 </script>
 

@@ -111,6 +111,7 @@
 </template>
 
 <script lang="ts" setup>
+import Confeti from '~/components/confirmation/Confeti.vue';
 import { useInvitationBuilderStore } from '~/stores/invitationBuilder';
 import { getRoutes } from '~/utils/routes';
 

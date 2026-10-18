@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PRICING_PLANS } from '~/utils/constants';
+import { PRICING_PLANS } from '~/components/home/constants';
 </script>
 
 <template>
