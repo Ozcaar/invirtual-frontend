@@ -4,7 +4,6 @@ export default defineNuxtConfig({
   typescript: {
     strict: true
   },
-  css: ['@/assets/main.css'],
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   modules: [
@@ -16,8 +15,8 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      // apiBase: process.env.NUXT_PUBLIC_API_BASE || 'https://api.invirtual.com'
-      apiBase: 'https://api.invirtual.com'
+      apiBase: process.env.NUXT_PUBLIC_API_BASE ||
+        (process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : 'https://api.invirtual.com')
     }
   }
 })

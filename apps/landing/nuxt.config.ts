@@ -46,6 +46,7 @@ export default defineNuxtConfig({
       panelUrl: '',
       landingUrl: '',
       builderUrl: '',
+      invitationsUrl: process.env.NUXT_PUBLIC_INVITATIONS_URL || 'http://localhost:5000',
     }
   },
   

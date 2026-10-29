@@ -4,10 +4,8 @@
 
 <script setup lang="ts">
 
-import { useFetch } from 'nuxt/app'
-import { useRuntimeConfig } from 'nuxt/kit'
 import { defineAsyncComponent } from 'vue'
-import { useRoute } from 'vue-router'
+import { useFetch, useRoute, useRuntimeConfig } from '#imports'
 
 const route = useRoute()
 

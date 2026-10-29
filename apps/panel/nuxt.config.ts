@@ -86,6 +86,7 @@ export default defineNuxtConfig({
       panelUrl: '',
       landingUrl: '',
       builderUrl: '',
+      invitationsUrl: process.env.NUXT_PUBLIC_INVITATIONS_URL || 'http://localhost:5000',
 
       supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
       supabaseKey: process.env.NUXT_PUBLIC_SUPABASE_ANON_KEY,
