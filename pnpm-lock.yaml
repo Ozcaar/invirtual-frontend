@@ -49,9 +49,6 @@ importers:
       '@googlemaps/markerclusterer':
         specifier: ^2.6.2
         version: 2.6.2
-      '@invirtual/nuxt-ui':
-        specifier: workspace:*
-        version: link:../../modules/nuxt-invirtual-ui
       '@nuxt/icon':
         specifier: 2.0.0
         version: 2.0.0(magicast@0.5.1)(vite@7.2.2(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.1)(yaml@2.8.1))(vue@3.5.23(typescript@5.9.3))

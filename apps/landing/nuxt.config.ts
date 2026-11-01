@@ -16,8 +16,7 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/icon',
     '@nuxt/image',
-    '@nuxt/scripts',
-    '@invirtual/nuxt-ui'
+    '@nuxt/scripts'
   ],
 
   fonts: {
@@ -37,7 +36,7 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
-  css: ['./app/assets/styles/app.css'],
+  css: ['./app/assets/styles/app.css', './app/assets/styles/theme.css'],
 
   runtimeConfig: {
     // apiSecret: '',

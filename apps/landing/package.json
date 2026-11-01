@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@googlemaps/markerclusterer": "^2.6.2",
-    "@invirtual/nuxt-ui": "workspace:*",
     "@nuxt/icon": "2.0.0",
     "@nuxt/image": "1.11.0",
     "@nuxt/scripts": "0.12.1",
