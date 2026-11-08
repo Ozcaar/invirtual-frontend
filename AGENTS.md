@@ -17,6 +17,7 @@ Apply these rules to every task in this repository, alongside any more specific 
 - Reuse existing utilities and dependencies. Propose and justify new dependencies before installing them.
 - Avoid unrelated refactors, renames, stylistic rewrites, or changes to files outside the approved task.
 - Preserve existing architecture and public contracts unless a change is explicitly approved.
+- The framework name may appear only in an application's folder name; keep internal project identifiers and package names framework-neutral.
 
 ## Configuration and security
 
