@@ -1,0 +1,51 @@
+<div hlmSidebarWrapper class="min-h-svh bg-background">
+  <hlm-sidebar>
+    <header hlmSidebarHeader class="px-6 pb-8 pt-7">
+      <a routerLink="/panel" class="flex items-center gap-3 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sidebar-ring">
+        <span class="grid size-8 place-items-center rounded-full border border-sidebar-foreground/35 font-semibold text-sidebar-foreground" aria-hidden="true">i</span>
+        <span class="font-sans text-xl font-semibold tracking-tight text-sidebar-foreground">invirtual</span>
+      </a>
+    </header>
+
+    <div hlmSidebarContent>
+      <section hlmSidebarGroup class="px-4">
+        <div hlmSidebarGroupLabel class="mb-2 px-2 font-sans text-[11px] font-semibold uppercase tracking-[0.12em] text-sidebar-foreground/65">Espacio</div>
+        <div hlmSidebarGroupContent>
+          <nav aria-label="Navegación principal" class="flex flex-col gap-1">
+            <a routerLink="/panel" routerLinkActive="bg-sidebar-accent text-sidebar-accent-foreground" [routerLinkActiveOptions]="{ exact: true }" class="flex min-h-11 items-center gap-3 rounded-sm px-3 py-2.5 text-sm font-medium text-sidebar-foreground/85 transition-colors hover:bg-sidebar-accent/60 hover:text-sidebar-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sidebar-ring" (click)="closeMobileSidebar()">
+              <svg lucideHouse aria-hidden="true" class="size-[18px] shrink-0"></svg>
+              Inicio
+            </a>
+            <span class="flex min-h-11 cursor-not-allowed items-center gap-3 rounded-sm px-3 py-2.5 text-sm text-sidebar-foreground/55" aria-disabled="true">
+              <svg lucideCalendarDays aria-hidden="true" class="size-[18px] shrink-0"></svg>
+              Eventos
+              <span class="ml-auto text-[10px]">Próximamente</span>
+            </span>
+            <span class="flex min-h-11 cursor-not-allowed items-center gap-3 rounded-sm px-3 py-2.5 text-sm text-sidebar-foreground/55" aria-disabled="true">
+              <svg lucideUsersRound aria-hidden="true" class="size-[18px] shrink-0"></svg>
+              Invitados
+              <span class="ml-auto text-[10px]">Próximamente</span>
+            </span>
+          </nav>
+        </div>
+      </section>
+    </div>
+
+    <footer class="mt-auto border-t border-sidebar-border px-6 py-5 text-xs leading-5 text-sidebar-foreground/70">
+      Un espacio para celebrar<br />a tu manera.
+    </footer>
+  </hlm-sidebar>
+
+  <main hlmSidebarInset class="min-h-svh min-w-0 bg-background">
+    <header class="sticky top-0 z-10 flex h-[4.25rem] items-center gap-4 border-b border-border bg-background/95 px-5 md:px-10">
+      <button type="button" aria-label="Abrir o cerrar navegación" [attr.aria-expanded]="sidebar.isMobile() ? sidebar.openMobile() : sidebar.open()" class="grid size-10 place-items-center rounded-sm border border-border bg-card text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring md:hidden" (click)="sidebar.toggleSidebar()">
+        <svg lucideMenu aria-hidden="true" class="size-[18px]"></svg>
+      </button>
+      <span class="text-sm font-medium text-muted-foreground">Tu espacio</span>
+      <span class="ml-auto grid size-8 place-items-center rounded-full border border-border bg-card text-xs font-semibold text-primary" aria-hidden="true">i</span>
+    </header>
+    <div class="mx-auto w-full max-w-[82rem] px-5 pb-16 pt-9 sm:px-8 md:px-12 md:pt-14">
+      <router-outlet />
+    </div>
+  </main>
+</div>
