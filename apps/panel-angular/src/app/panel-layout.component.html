@@ -2,8 +2,8 @@
   <hlm-sidebar>
     <header hlmSidebarHeader class="px-6 pb-8 pt-7">
       <a routerLink="/panel" class="flex items-center gap-3 rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sidebar-ring">
-        <span class="grid size-8 place-items-center rounded-full border border-sidebar-foreground/35 font-semibold text-sidebar-foreground" aria-hidden="true">i</span>
-        <span class="font-sans text-xl font-semibold tracking-tight text-sidebar-foreground">invirtual</span>
+        <span class="grid size-8 place-items-center rounded-full bg-sidebar-primary font-semibold text-sidebar-primary-foreground" aria-hidden="true">i</span>
+        <span class="font-sans text-xl font-semibold tracking-tight text-sidebar-foreground">InviRtual</span>
       </a>
     </header>
 
@@ -12,19 +12,19 @@
         <div hlmSidebarGroupLabel class="mb-2 px-2 font-sans text-[11px] font-semibold uppercase tracking-[0.12em] text-sidebar-foreground/65">Espacio</div>
         <div hlmSidebarGroupContent>
           <nav aria-label="Navegación principal" class="flex flex-col gap-1">
-            <a routerLink="/panel" routerLinkActive="bg-sidebar-accent text-sidebar-accent-foreground" [routerLinkActiveOptions]="{ exact: true }" class="flex min-h-11 items-center gap-3 rounded-sm px-3 py-2.5 text-sm font-medium text-sidebar-foreground/85 transition-colors hover:bg-sidebar-accent/60 hover:text-sidebar-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sidebar-ring" (click)="closeMobileSidebar()">
+            <a routerLink="/panel" routerLinkActive="bg-sidebar-accent text-sidebar-accent-foreground font-semibold" ariaCurrentWhenActive="page" [routerLinkActiveOptions]="{ exact: true }" class="flex min-h-11 items-center gap-3 rounded-sm px-3 py-2.5 text-sm font-medium text-sidebar-foreground/85 transition-colors hover:bg-sidebar-accent/60 hover:text-sidebar-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sidebar-ring" (click)="closeMobileSidebar()">
               <svg lucideHouse aria-hidden="true" class="size-[18px] shrink-0"></svg>
               Inicio
             </a>
             <span class="flex min-h-11 cursor-not-allowed items-center gap-3 rounded-sm px-3 py-2.5 text-sm text-sidebar-foreground/55" aria-disabled="true">
               <svg lucideCalendarDays aria-hidden="true" class="size-[18px] shrink-0"></svg>
               Eventos
-              <span class="ml-auto text-[10px]">Próximamente</span>
+              <span class="ml-auto rounded-sm border border-sidebar-border bg-sidebar-accent/70 px-1.5 py-0.5 text-[10px] font-medium text-sidebar-foreground/75">Próximamente</span>
             </span>
             <span class="flex min-h-11 cursor-not-allowed items-center gap-3 rounded-sm px-3 py-2.5 text-sm text-sidebar-foreground/55" aria-disabled="true">
               <svg lucideUsersRound aria-hidden="true" class="size-[18px] shrink-0"></svg>
               Invitados
-              <span class="ml-auto text-[10px]">Próximamente</span>
+              <span class="ml-auto rounded-sm border border-sidebar-border bg-sidebar-accent/70 px-1.5 py-0.5 text-[10px] font-medium text-sidebar-foreground/75">Próximamente</span>
             </span>
           </nav>
         </div>
@@ -42,7 +42,6 @@
         <svg lucideMenu aria-hidden="true" class="size-[18px]"></svg>
       </button>
       <span class="text-sm font-medium text-muted-foreground">Tu espacio</span>
-      <span class="ml-auto grid size-8 place-items-center rounded-full border border-border bg-card text-xs font-semibold text-primary" aria-hidden="true">i</span>
     </header>
     <div class="mx-auto w-full max-w-[82rem] px-5 pb-16 pt-9 sm:px-8 md:px-12 md:pt-14">
       <router-outlet />
