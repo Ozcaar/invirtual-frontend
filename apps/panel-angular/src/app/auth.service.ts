@@ -1,9 +1,13 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { createClient, type Session, type SupabaseClient } from '@supabase/supabase-js';
+import { firstValueFrom } from 'rxjs';
 import { environment } from '../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
+  constructor(private readonly http: HttpClient) {}
+
   readonly isConfigured = Boolean(environment.supabaseUrl && environment.supabaseAnonKey);
 
   private readonly client: SupabaseClient | null = this.isConfigured
@@ -31,10 +35,10 @@ export class AuthService {
   }
 
   async provisionUser(accessToken: string): Promise<void> {
-    const response = await fetch(new URL('/user/me', environment.apiBase), {
-      headers: { Authorization: `Bearer ${accessToken}` },
-    });
-
-    if (!response.ok) throw new Error('No se pudo preparar tu cuenta.');
+    await firstValueFrom(
+      this.http.get<void>(new URL('/user/me', environment.apiBase).toString(), {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      }),
+    );
   }
 }
