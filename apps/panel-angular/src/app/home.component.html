@@ -1,56 +1,139 @@
 <section
-  class="grid min-h-[65svh] grid-cols-1 items-center gap-12 xl:grid-cols-[1.1fr_0.9fr] xl:gap-24"
+  class="grid min-h-[65svh] grid-cols-1 gap-12 xl:grid-cols-[1.1fr_0.9fr] xl:gap-24"
+  [class.items-center]="events().length === 0"
+  [class.items-start]="events().length > 0"
   aria-labelledby="home-title"
 >
   <div class="max-w-xl">
+    @if (events().length > 0) {
     <h1
       id="home-title"
       class="mb-5 max-w-[14ch] text-4xl font-semibold leading-[1.12] tracking-[-0.035em] text-foreground sm:text-[2.75rem]"
     >
-      Tu próxima celebración empieza aquí.
+      Tus eventos
     </h1>
     <p class="max-w-[42ch] text-base leading-7 text-muted-foreground">
-      Este espacio te ayudará a crear una invitación a tu manera y a tener los
-      detalles de tu evento en un solo lugar.
+      Consulta aquí los detalles disponibles de tus invitaciones.
     </p>
-    <p
-      class="mt-7 flex items-center gap-2.5 text-sm font-semibold text-foreground"
-    >
-      <svg
-        lucideCirclePlus
-        aria-hidden="true"
-        class="size-[18px] text-primary"
-      ></svg>
-      Aún no tienes eventos
-    </p>
+    } @else if (isLoading()) {
+      <h1
+        id="home-title"
+        class="mb-5 max-w-[14ch] text-4xl font-semibold leading-[1.12] tracking-[-0.035em] text-foreground sm:text-[2.75rem]"
+      >
+        Tu próxima celebración empieza aquí.
+      </h1>
+      <p class="max-w-[42ch] text-base leading-7 text-muted-foreground">
+        Estamos cargando la información de tus eventos.
+      </p>
+    } @else if (errorMessage()) {
+      <h1
+        id="home-title"
+        class="mb-5 max-w-[14ch] text-4xl font-semibold leading-[1.12] tracking-[-0.035em] text-foreground sm:text-[2.75rem]"
+      >
+        Tus eventos
+      </h1>
+      <p class="max-w-[42ch] text-base leading-7 text-muted-foreground">
+        No pudimos consultar tus invitaciones en este momento.
+      </p>
+    } @else {
+      <h1
+        id="home-title"
+        class="mb-5 max-w-[14ch] text-4xl font-semibold leading-[1.12] tracking-[-0.035em] text-foreground sm:text-[2.75rem]"
+      >
+        Tu próxima celebración empieza aquí.
+      </h1>
+      <p class="max-w-[42ch] text-base leading-7 text-muted-foreground">
+        Este espacio te ayudará a crear una invitación a tu manera y a tener los
+        detalles de tu evento en un solo lugar.
+      </p>
+      <p
+        class="mt-7 flex items-center gap-2.5 text-sm font-semibold text-foreground"
+      >
+        <svg
+          lucideCirclePlus
+          aria-hidden="true"
+          class="size-[18px] text-primary"
+        ></svg>
+        Aún no tienes eventos
+      </p>
+    }
   </div>
 
-  <div
-    class="relative mx-auto aspect-[0.91] w-[min(100%,25rem)] max-sm:w-[min(78%,19rem)]"
-    aria-hidden="true"
-  >
-    <div
-      class="absolute inset-[6%_6%_4%_8%] rotate-[5deg] border border-accent/60 bg-accent/35"
-    ></div>
-    <div
-      class="absolute inset-[7%_10%_3%_6%] rotate-[-7deg] border border-border bg-primary"
-    ></div>
-    <div
-      class="absolute inset-[0_7%_7%_0] flex flex-col items-center justify-center border border-border border-t-4 border-t-primary bg-card px-6 py-8 text-center sm:px-10"
+  @if (isLoading()) {
+    <p
+      class="border border-border bg-card px-5 py-4 text-sm text-muted-foreground"
+      role="status"
+      aria-live="polite"
     >
-      <p class="mb-2 text-sm font-medium text-foreground/80">Un día especial</p>
-      <p
-        class="mb-4 max-w-[9ch] text-3xl font-medium leading-tight tracking-[-0.03em] text-foreground sm:text-4xl"
+      Cargando tus eventos…
+    </p>
+  } @else if (errorMessage()) {
+    <div class="border border-border bg-card p-5" role="alert">
+      <p class="text-sm leading-6 text-foreground">{{ errorMessage() }}</p>
+      <button
+        type="button"
+        class="mt-4 min-h-10 border border-border px-4 text-sm font-semibold text-foreground transition-colors hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+        (click)="loadEvents()"
       >
-        Una historia por celebrar
-      </p>
-      <p class="max-w-[20ch] text-xs leading-5 text-muted-foreground">
-        Tu invitación tomará forma aquí, cuando estés listo.
-      </p>
-      <span
-        class="mt-8 grid size-12 place-items-center rounded-full border border-accent/60 bg-accent/40 text-sm font-semibold text-foreground"
-        >i</span
-      >
+        Reintentar
+      </button>
     </div>
-  </div>
+  } @else if (events().length > 0) {
+    <section class="grid min-w-0 gap-3" aria-label="Lista de eventos">
+      @for (event of events(); track event.invitationUuid) {
+        <article class="min-w-0 border border-border bg-card p-5 sm:p-6">
+          <div class="flex flex-wrap items-start justify-between gap-3">
+            <h2 class="min-w-0 break-words text-lg font-semibold leading-snug text-card-foreground">
+              {{ event.name }}
+            </h2>
+            <div class="flex shrink-0 flex-wrap items-center gap-2">
+              <span class="border border-border px-2 py-1 text-xs font-medium text-muted-foreground">
+                {{ event.active ? "Activa" : "Inactiva" }}
+              </span>
+              @if (event.isDemo) {
+                <span class="border border-accent/70 bg-accent/35 px-2 py-1 text-xs font-medium text-foreground">
+                  Demo
+                </span>
+              }
+            </div>
+          </div>
+          <p class="mt-3 break-all text-sm text-muted-foreground">
+            Slug: {{ event.slugUrl }}
+          </p>
+          <p class="mt-2 text-sm text-muted-foreground">
+            Cupo máximo: {{ event.maxPeople }} personas
+          </p>
+        </article>
+      }
+    </section>
+  } @else {
+    <div
+      class="relative mx-auto aspect-[0.91] w-[min(100%,25rem)] max-sm:w-[min(78%,19rem)]"
+      aria-hidden="true"
+    >
+      <div
+        class="absolute inset-[6%_6%_4%_8%] rotate-[5deg] border border-accent/60 bg-accent/35"
+      ></div>
+      <div
+        class="absolute inset-[7%_10%_3%_6%] rotate-[-7deg] border border-border bg-primary"
+      ></div>
+      <div
+        class="absolute inset-[0_7%_7%_0] flex flex-col items-center justify-center border border-border border-t-4 border-t-primary bg-card px-6 py-8 text-center sm:px-10"
+      >
+        <p class="mb-2 text-sm font-medium text-foreground/80">Un día especial</p>
+        <p
+          class="mb-4 max-w-[9ch] text-3xl font-medium leading-tight tracking-[-0.03em] text-foreground sm:text-4xl"
+        >
+          Una historia por celebrar
+        </p>
+        <p class="max-w-[20ch] text-xs leading-5 text-muted-foreground">
+          Tu invitación tomará forma aquí, cuando estés listo.
+        </p>
+        <span
+          class="mt-8 grid size-12 place-items-center rounded-full border border-accent/60 bg-accent/40 text-sm font-semibold text-foreground"
+          >i</span
+        >
+      </div>
+    </div>
+  }
 </section>
